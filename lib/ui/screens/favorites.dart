@@ -54,39 +54,6 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       'favorites.sort',
       PlayableSortConfig(field: 'title', order: SortOrder.asc),
     )!;
- var widgets = [
-                  SliverAppBar(
-      backgroundColor: AppColors.flexibleScreenHeaderBackground,
-
-                  ),
-                  SliverToBoxAdapter(
-                    child: NoFavouritesScreen(
-                    ),
-                  )
-                ];
-
-  // return Scaffold(
-    
-  //     body: CupertinoTheme(
-  //       data: const CupertinoThemeData(primaryColor: Colors.white),
-  //       child: GradientDecoratedContainer(
-  //         child:
-  //          PullToRefresh(
-  //               onRefresh: () => _loading ? Future(() => null) : makeRequest(),
-  //               child: CustomScrollView(slivers: widgets),
-  //             ))));
-
-  
-  //   SliverFillRemaining(
-  //     hasScrollBody: false,
-  //     fillOverscroll: true,
-  //     child: Padding(
-  //       padding: const EdgeInsets.symmetric(horizontal: AppDimensions.hPadding),
-  //       child: Center(
-  //         child: ,
-  //       ),
-  //     ),
-  //   );
 
     return Scaffold(
       body: GradientDecoratedContainer(
@@ -97,6 +64,18 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               if (_errored) return OopsBox(onRetry: makeRequest);
             }
 
+            if(provider.playables.isEmpty){
+
+              return PullToRefresh(
+                onRefresh: () => _loading ? Future(() => null) : makeRequest(),
+                child: CustomScrollView(slivers: [ 
+                  SliverAppBar(
+                  backgroundColor: AppColors.flexibleScreenHeaderBackground),
+                  NoFavouritesScreen()
+]));
+           
+            }
+
             if (cover.isEmpty) {
               cover = CoverImageStack(playables: provider.playables);
             }
@@ -104,7 +83,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             final songs =
                 provider.playables.$sort(sortConfig).$filter(_searchQuery);
 
-            return PullToRefresh(
+            var  a=  PullToRefresh(
               onRefresh: () {
                 return _loading
                     ? Future(() => null)
@@ -113,7 +92,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               child: ScrollsToTop(
                 child: CustomScrollView(
                   slivers: provider.playables.isEmpty
-                      ? <Widget>[Text("empty")]
+                      ? <Widget>[NoFavouritesScreen()]
                       : <Widget>[
                           AppBar(
                             headingText: 'Favorites',
@@ -149,6 +128,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 ),
               ),
             );
+          
+          return a;
           },
         ),
       ),
@@ -180,29 +161,7 @@ class NoFavouritesScreen extends StatelessWidget {
                 'No favorites',
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
-            const SizedBox(height: 16.0),
-              RichText(
-                textAlign: TextAlign.center,
-                text: const TextSpan(
-                  style: TextStyle(color: Colors.white54),
-                  children: <InlineSpan>[
-                    TextSpan(text: 'Tap the'),
-                    WidgetSpan(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Icon(
-                          CupertinoIcons.heart_solid,
-                          size: 16.0,
-                        ),
-                      ),
-                    ),
-                    TextSpan(
-                      text: 'icon in a song’s menu to mark it as '
-                          'favorite.',
-                    ),
-                  ],
-                ),
-              ),
+           
         ],
       ),
     );

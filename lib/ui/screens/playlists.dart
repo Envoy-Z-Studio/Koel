@@ -6,8 +6,6 @@ import 'package:app/ui/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/src/material/app_bar.dart' as Material;
-import 'package:app/ui/widgets/app_bar.dart' as App;
 class PlaylistsScreen extends StatefulWidget {
   static const routeName = '/playlists';
   final AppRouter router;

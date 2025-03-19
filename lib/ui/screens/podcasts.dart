@@ -239,6 +239,10 @@ class NoPodcastsScreen extends StatelessWidget {
           ),
           const Text('No podcasts available.'),
           ElevatedButton(onPressed: onTap, child: Text('Add a Podcast')),
+            ElevatedButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text('Go back'),
+                        ),
         ],
       ),
     );
