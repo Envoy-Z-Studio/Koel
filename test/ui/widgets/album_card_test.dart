@@ -38,7 +38,7 @@ void main() {
     MockAppRouter router = MockAppRouter();
     when(
       router.gotoAlbumDetailsScreen(any, album: album),
-    ).thenAnswer((_) async => null);
+    ).thenAnswer((_) async {});
 
     await tester.pumpAppWidget(AlbumCard(album: album, router: router));
 

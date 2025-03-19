@@ -7,7 +7,7 @@ import '../../extensions/widget_tester_extension.dart';
 import '../../utils.dart';
 
 void main() {
-  Widget _mount({void Function()? onPressed}) {
+  Widget mount({void Function()? onPressed}) {
     return Flex(
       direction: Axis.vertical,
       children: <Widget>[
@@ -21,7 +21,7 @@ void main() {
   }
 
   testWidgets('renders', (WidgetTester tester) async {
-    await tester.pumpAppWidget(_mount());
+    await tester.pumpAppWidget(mount());
 
     expect(find.byType(ElevatedButton), findsOneWidget);
     expect(find.byType(Icon), findsOneWidget);
@@ -37,7 +37,7 @@ void main() {
 
   testWidgets('triggers callback', (WidgetTester tester) async {
     var onPressed = Callable();
-    await tester.pumpAppWidget(_mount(onPressed: onPressed));
+    await tester.pumpAppWidget(mount(onPressed: onPressed.call));
 
     await tester.tap(find.byType(ElevatedButton));
     expect(onPressed.called, isTrue);

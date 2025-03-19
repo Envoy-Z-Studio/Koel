@@ -19,7 +19,7 @@ void main() {
     songs = Song.fakeMany(10);
   });
 
-  Future<void> _mount(WidgetTester tester) async {
+  Future<void> mount(WidgetTester tester) async {
     await tester.pumpAppWidget(
       ChangeNotifierProvider<AudioProvider>.value(
         value: audioMock,
@@ -29,13 +29,13 @@ void main() {
   }
 
   testWidgets('plays all', (WidgetTester tester) async {
-    await _mount(tester);
+    await mount(tester);
     await tester.tap(find.byKey(PlayableListHeader.firstButtonKey));
     verify(audioMock.replaceQueue(songs)).called(1);
   });
 
   testWidgets('shuffles all', (WidgetTester tester) async {
-    await _mount(tester);
+    await mount(tester);
     await tester.tap(find.byKey(PlayableListHeader.secondButtonKey));
     verify(audioMock.replaceQueue(songs, shuffle: true)).called(1);
   });

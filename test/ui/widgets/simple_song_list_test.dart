@@ -37,7 +37,7 @@ void main() {
     when(audioMock.player).thenReturn(AssetsAudioPlayer());
   });
 
-  Future<void> _mount(
+  Future<void> mount(
     WidgetTester tester, {
     List<Song>? songs,
     String? heading,
@@ -60,23 +60,23 @@ void main() {
   }
 
   testWidgets('renders the song rows', (WidgetTester tester) async {
-    await _mount(tester);
+    await mount(tester);
     expect(find.byType(PlayableRow), findsNWidgets(4));
   });
 
   testWidgets('does not render the heading', (WidgetTester tester) async {
-    await _mount(tester);
+    await mount(tester);
     expect(find.byType(Heading5), findsNothing);
   });
 
   testWidgets('renders the heading', (WidgetTester tester) async {
-    await _mount(tester, heading: 'Banana Leaves');
+    await mount(tester, heading: 'Banana Leaves');
     expect(find.text('Banana Leaves'), findsOneWidget);
   });
 
   testWidgets('invokes tap function on heading', (WidgetTester tester) async {
     var onTap = Callable();
-    await _mount(tester, heading: 'Banana Leaves', onTap: onTap);
+    await mount(tester, heading: 'Banana Leaves', onTap: onTap.call);
     await tester.tap(find.text('Banana Leaves'));
     expect(onTap.called, isTrue);
   });

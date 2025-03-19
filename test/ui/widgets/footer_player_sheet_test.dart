@@ -43,7 +43,7 @@ void main() {
         BehaviorSubject<PlayerState>.seeded(PlayerState.play);
 
     when(audioMock.playerState).thenAnswer((_) => playState);
-    when(audioMock.playOrPause()).thenAnswer((_) async => null);
+    when(audioMock.playOrPause()).thenAnswer((_) async {});
     when(audioMock.playNext()).thenAnswer((_) async => true);
 
     await tester.pumpAppWidget(

@@ -37,7 +37,7 @@ void main() {
         .thenAnswer((_) => singleCacheRemoved.stream);
   });
 
-  Future<void> _mount(WidgetTester tester) async {
+  Future<void> mount(WidgetTester tester) async {
     await tester.pumpAppWidget(
       ChangeNotifierProvider<DownloadProvider>.value(
         value: cacheMock,
@@ -46,7 +46,7 @@ void main() {
     );
   }
 
-  void _assertCacheStatus({required bool hasCache}) {
+  void assertCacheStatus({required bool hasCache}) {
     if (hasCache) {
       expect(find.byIcon(CupertinoIcons.cloud_download_fill), findsNothing);
       expect(
@@ -67,8 +67,8 @@ void main() {
     (WidgetTester tester) async {
       when(cacheMock.has(playable: song)).thenAnswer((_) async => false);
 
-      await _mount(tester);
-      _assertCacheStatus(hasCache: false);
+      await mount(tester);
+      assertCacheStatus(hasCache: false);
     },
   );
 
@@ -77,31 +77,31 @@ void main() {
     (WidgetTester tester) async {
       when(cacheMock.has(playable: song)).thenAnswer((_) async => true);
 
-      await _mount(tester);
-      _assertCacheStatus(hasCache: true);
+      await mount(tester);
+      assertCacheStatus(hasCache: true);
     },
   );
 
   testWidgets('re-renders when cache is cleared', (WidgetTester tester) async {
     when(cacheMock.has(playable: song)).thenAnswer((_) async => true);
 
-    await _mount(tester);
-    _assertCacheStatus(hasCache: true);
+    await mount(tester);
+    assertCacheStatus(hasCache: true);
 
     cacheCleared.add(true);
     await tester.pumpAndSettle();
-    _assertCacheStatus(hasCache: false);
+    assertCacheStatus(hasCache: false);
   });
 
   testWidgets('re-renders when song is cached', (WidgetTester tester) async {
     when(cacheMock.has(playable: song)).thenAnswer((_) async => false);
 
-    await _mount(tester);
-    _assertCacheStatus(hasCache: false);
+    await mount(tester);
+    assertCacheStatus(hasCache: false);
 
     songCached.add(Download(playable: song, path: MockFileInfo()));
     await tester.pumpAndSettle();
-    _assertCacheStatus(hasCache: true);
+    assertCacheStatus(hasCache: true);
   });
 
   testWidgets(
@@ -109,12 +109,12 @@ void main() {
     (WidgetTester tester) async {
       when(cacheMock.has(playable: song)).thenAnswer((_) async => true);
 
-      await _mount(tester);
-      _assertCacheStatus(hasCache: true);
+      await mount(tester);
+      assertCacheStatus(hasCache: true);
 
       singleCacheRemoved.add(song);
       await tester.pumpAndSettle();
-      _assertCacheStatus(hasCache: false);
+      assertCacheStatus(hasCache: false);
     },
   );
 }

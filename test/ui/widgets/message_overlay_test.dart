@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../extensions/widget_tester_extension.dart';
 
 void main() {
-  Future<void> _mount(
+  Future<void> mount(
     WidgetTester tester, {
     required MessageOverlay overlay,
   }) async {
@@ -24,7 +24,7 @@ void main() {
   }
 
   testWidgets('renders default state', (WidgetTester tester) async {
-    await _mount(tester, overlay: MessageOverlay());
+    await mount(tester, overlay: MessageOverlay());
     await expectLater(
       find.byType(MessageOverlay),
       matchesGoldenFile('goldens/message_overlay_default.png'),
@@ -32,7 +32,7 @@ void main() {
   });
 
   testWidgets('renders a custom icon', (WidgetTester tester) async {
-    await _mount(
+    await mount(
       tester,
       overlay: MessageOverlay(
         icon: CupertinoIcons.heart_solid,
@@ -47,7 +47,7 @@ void main() {
   });
 
   testWidgets('renders a caption', (WidgetTester tester) async {
-    await _mount(tester, overlay: MessageOverlay(caption: 'Done!'));
+    await mount(tester, overlay: MessageOverlay(caption: 'Done!'));
 
     await expectLater(
       find.byType(MessageOverlay),
@@ -56,7 +56,7 @@ void main() {
   });
 
   testWidgets('renders a message without caption', (WidgetTester tester) async {
-    await _mount(
+    await mount(
       tester,
       overlay: MessageOverlay(message: 'Banana cake cooked.'),
     );
@@ -68,7 +68,7 @@ void main() {
   });
 
   testWidgets('renders full', (WidgetTester tester) async {
-    await _mount(
+    await mount(
       tester,
       overlay: MessageOverlay(
         icon: CupertinoIcons.heart_solid,

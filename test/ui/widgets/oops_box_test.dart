@@ -21,7 +21,7 @@ void main() {
     dummyLoginScreen = Text('Dummy Login Screen');
   });
 
-  Future<void> _mount(
+  Future<void> mount(
     WidgetTester tester, {
     void Function()? retryFunction,
   }) async {
@@ -36,7 +36,7 @@ void main() {
   }
 
   testWidgets('renders', (WidgetTester tester) async {
-    await _mount(tester, retryFunction: () {});
+    await mount(tester, retryFunction: () {});
 
     await expectLater(
       find.byType(OopsBox),
@@ -46,13 +46,13 @@ void main() {
 
   testWidgets('invokes Retry function', (WidgetTester tester) async {
     var retry = Callable();
-    await _mount(tester, retryFunction: retry);
+    await mount(tester, retryFunction: retry.call);
     await tester.tap(find.byKey(OopsBox.retryButtonKey));
     expect(retry.called, isTrue);
   });
 
   testWidgets('logs out', (WidgetTester tester) async {
-    await _mount(tester);
+    await mount(tester);
     await tester.tap(find.byKey(OopsBox.logOutButtonKey));
     await tester.pumpAndSettle();
     verify(authMock.logout()).called(1);

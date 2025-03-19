@@ -2,18 +2,18 @@
 // in app/test/ui/widgets/song_card_test.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i6;
-import 'dart:ui' as _i7;
+import 'dart:async' as i6;
+import 'dart:ui' as i7;
 
-import 'package:app/models/album.dart' as _i10;
-import 'package:app/models/artist.dart' as _i11;
-import 'package:app/models/song.dart' as _i5;
-import 'package:app/providers/audio_provider.dart' as _i4;
-import 'package:app/router.dart' as _i8;
-import 'package:assets_audio_player/assets_audio_player.dart' as _i2;
-import 'package:flutter/cupertino.dart' as _i9;
-import 'package:mockito/mockito.dart' as _i1;
-import 'package:rxdart/rxdart.dart' as _i3;
+import 'package:app/models/album.dart' as i10;
+import 'package:app/models/artist.dart' as i11;
+import 'package:app/models/song.dart' as i5;
+import 'package:app/providers/audio_provider.dart' as i4;
+import 'package:app/router.dart' as i8;
+import 'package:assets_audio_player/assets_audio_player.dart' as i2;
+import 'package:flutter/cupertino.dart' as i9;
+import 'package:mockito/mockito.dart' as i1;
+import 'package:rxdart/rxdart.dart' as i3;
 
 // ignore_for_file: avoid_redundant_argument_values
 // ignore_for_file: avoid_setters_without_getters
@@ -23,34 +23,34 @@ import 'package:rxdart/rxdart.dart' as _i3;
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: unnecessary_parenthesis
 
-class _FakeAssetsAudioPlayer extends _i1.Fake
-    implements _i2.AssetsAudioPlayer {}
+class _FakeAssetsAudioPlayer extends i1.Fake
+    implements i2.AssetsAudioPlayer {}
 
-class _FakeValueStream<T> extends _i1.Fake implements _i3.ValueStream<T> {}
+class _FakeValueStream<T> extends i1.Fake implements i3.ValueStream<T> {}
 
 /// A class which mocks [AudioProvider].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAudioProvider extends _i1.Mock implements _i4.AudioProvider {
+class MockAudioProvider extends i1.Mock implements i4.AudioProvider {
   MockAudioProvider() {
-    _i1.throwOnMissingStub(this);
+    i1.throwOnMissingStub(this);
   }
 
   @override
-  _i2.AssetsAudioPlayer get player =>
+  i2.AssetsAudioPlayer get player =>
       (super.noSuchMethod(Invocation.getter(#player),
-          returnValue: _FakeAssetsAudioPlayer()) as _i2.AssetsAudioPlayer);
+          returnValue: _FakeAssetsAudioPlayer()) as i2.AssetsAudioPlayer);
 
   @override
-  List<_i5.Song> get queuedSongs =>
+  List<i5.Song> get queuedSongs =>
       (super.noSuchMethod(Invocation.getter(#queuedSongs),
-          returnValue: <_i5.Song>[]) as List<_i5.Song>);
+          returnValue: <i5.Song>[]) as List<i5.Song>);
 
   @override
-  _i3.ValueStream<_i2.PlayerState> get playerState =>
+  i3.ValueStream<i2.PlayerState> get playerState =>
       (super.noSuchMethod(Invocation.getter(#playerState),
-              returnValue: _FakeValueStream<_i2.PlayerState>())
-          as _i3.ValueStream<_i2.PlayerState>);
+              returnValue: _FakeValueStream<i2.PlayerState>())
+          as i3.ValueStream<i2.PlayerState>);
 
   @override
   bool get hasListeners =>
@@ -58,74 +58,74 @@ class MockAudioProvider extends _i1.Mock implements _i4.AudioProvider {
           as bool);
 
   @override
-  _i6.Future<void> init() => (super.noSuchMethod(Invocation.method(#init, []),
+  i6.Future<void> init() => (super.noSuchMethod(Invocation.method(#init, []),
       returnValue: Future<void>.value(),
-      returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+      returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
-  _i6.Future<bool> queued(_i5.Song? song) =>
+  i6.Future<bool> queued(i5.Song? song) =>
       (super.noSuchMethod(Invocation.method(#queued, [song]),
-          returnValue: Future<bool>.value(false)) as _i6.Future<bool>);
+          returnValue: Future<bool>.value(false)) as i6.Future<bool>);
 
   @override
-  _i6.Future<int> getQueuePosition(_i5.Song? song) =>
+  i6.Future<int> getQueuePosition(i5.Song? song) =>
       (super.noSuchMethod(Invocation.method(#indexInQueue, [song]),
-          returnValue: Future<int>.value(0)) as _i6.Future<int>);
+          returnValue: Future<int>.value(0)) as i6.Future<int>);
 
   @override
-  _i6.Future<void> play({_i5.Song? song}) =>
+  i6.Future<void> play({i5.Song? song}) =>
       (super.noSuchMethod(Invocation.method(#play, [], {#song: song}),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
-  _i6.Future<void> stop() => (super.noSuchMethod(Invocation.method(#stop, []),
+  i6.Future<void> stop() => (super.noSuchMethod(Invocation.method(#stop, []),
       returnValue: Future<void>.value(),
-      returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+      returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
-  _i6.Future<int> queueToTop({_i5.Song? song}) =>
+  i6.Future<int> queueToTop({i5.Song? song}) =>
       (super.noSuchMethod(Invocation.method(#queueToTop, [], {#song: song}),
-          returnValue: Future<int>.value(0)) as _i6.Future<int>);
+          returnValue: Future<int>.value(0)) as i6.Future<int>);
 
   @override
-  _i6.Future<int> queueToBottom({_i5.Song? song}) =>
+  i6.Future<int> queueToBottom({i5.Song? song}) =>
       (super.noSuchMethod(Invocation.method(#queueToBottom, [], {#song: song}),
-          returnValue: Future<int>.value(0)) as _i6.Future<int>);
+          returnValue: Future<int>.value(0)) as i6.Future<int>);
 
   @override
-  _i6.Future<int> queueAfterCurrent({_i5.Song? song}) => (super.noSuchMethod(
+  i6.Future<int> queueAfterCurrent({i5.Song? song}) => (super.noSuchMethod(
       Invocation.method(#queueAfterCurrent, [], {#song: song}),
-      returnValue: Future<int>.value(0)) as _i6.Future<int>);
+      returnValue: Future<int>.value(0)) as i6.Future<int>);
 
   @override
-  _i6.Future<bool> playNext() =>
+  i6.Future<bool> playNext() =>
       (super.noSuchMethod(Invocation.method(#playNext, []),
-          returnValue: Future<bool>.value(false)) as _i6.Future<bool>);
+          returnValue: Future<bool>.value(false)) as i6.Future<bool>);
 
   @override
-  _i6.Future<void> playOrPause() =>
+  i6.Future<void> playOrPause() =>
       (super.noSuchMethod(Invocation.method(#playOrPause, []),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
-  _i6.Future<void> replaceQueue(List<_i5.Song>? songs,
+  i6.Future<void> replaceQueue(List<i5.Song>? songs,
           {dynamic shuffle = false}) =>
       (super.noSuchMethod(
           Invocation.method(#replaceQueue, [songs], {#shuffle: shuffle}),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
   void clearQueue() => super.noSuchMethod(Invocation.method(#clearQueue, []),
       returnValueForMissingStub: null);
 
   @override
-  _i6.Future<void> removeFromQueue({_i5.Song? song}) => (super.noSuchMethod(
+  i6.Future<void> removeFromQueue({i5.Song? song}) => (super.noSuchMethod(
       Invocation.method(#removeFromQueue, [], {#song: song}),
       returnValue: Future<void>.value(),
-      returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+      returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
   void reorderQueue(int? oldIndex, int? newIndex) =>
@@ -133,10 +133,10 @@ class MockAudioProvider extends _i1.Mock implements _i4.AudioProvider {
           returnValueForMissingStub: null);
 
   @override
-  _i6.Future<void> cleanUpUponLogout() =>
+  i6.Future<void> cleanUpUponLogout() =>
       (super.noSuchMethod(Invocation.method(#cleanUpUponLogout, []),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
   void unsubscribeAll() =>
@@ -144,17 +144,17 @@ class MockAudioProvider extends _i1.Mock implements _i4.AudioProvider {
           returnValueForMissingStub: null);
 
   @override
-  void subscribe(_i6.StreamSubscription<dynamic>? sub) =>
+  void subscribe(i6.StreamSubscription<dynamic>? sub) =>
       super.noSuchMethod(Invocation.method(#subscribe, [sub]),
           returnValueForMissingStub: null);
 
   @override
-  void addListener(_i7.VoidCallback? listener) =>
+  void addListener(i7.VoidCallback? listener) =>
       super.noSuchMethod(Invocation.method(#addListener, [listener]),
           returnValueForMissingStub: null);
 
   @override
-  void removeListener(_i7.VoidCallback? listener) =>
+  void removeListener(i7.VoidCallback? listener) =>
       super.noSuchMethod(Invocation.method(#removeListener, [listener]),
           returnValueForMissingStub: null);
 
@@ -171,46 +171,46 @@ class MockAudioProvider extends _i1.Mock implements _i4.AudioProvider {
 /// A class which mocks [AppRouter].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAppRouter extends _i1.Mock implements _i8.AppRouter {
+class MockAppRouter extends i1.Mock implements i8.AppRouter {
   MockAppRouter() {
-    _i1.throwOnMissingStub(this);
+    i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<void> gotoAlbumDetailsScreen(_i9.BuildContext? context,
-          {_i10.Album? album}) =>
+  i6.Future<void> gotoAlbumDetailsScreen(i9.BuildContext? context,
+          {i10.Album? album}) =>
       (super.noSuchMethod(
           Invocation.method(
               #gotoAlbumDetailsScreen, [context], {#album: album}),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
-  _i6.Future<void> gotoArtistDetailsScreen(_i9.BuildContext? context,
-          {_i11.Artist? artist}) =>
+  i6.Future<void> gotoArtistDetailsScreen(i9.BuildContext? context,
+          {i11.Artist? artist}) =>
       (super.noSuchMethod(
           Invocation.method(
               #gotoArtistDetailsScreen, [context], {#artist: artist}),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
-  _i6.Future<void> openNowPlayingScreen(_i9.BuildContext? context) =>
+  i6.Future<void> openNowPlayingScreen(i9.BuildContext? context) =>
       (super.noSuchMethod(Invocation.method(#openNowPlayingScreen, [context]),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
-  _i6.Future<void> showCreatePlaylistSheet(_i9.BuildContext? context) => (super
+  i6.Future<void> showCreatePlaylistSheet(i9.BuildContext? context) => (super
       .noSuchMethod(Invocation.method(#showCreatePlaylistSheet, [context]),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 
   @override
-  _i6.Future<void> showPlayableActionSheet(_i9.BuildContext? context,
-          {_i5.Song? playable}) =>
+  i6.Future<void> showPlayableActionSheet(i9.BuildContext? context,
+          {i5.Song? playable}) =>
       (super.noSuchMethod(
           Invocation.method(#showActionSheet, [context], {#song: playable}),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as i6.Future<void>);
 }

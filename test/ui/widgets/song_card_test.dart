@@ -27,7 +27,7 @@ void main() {
     );
   });
 
-  Future<void> _mount(WidgetTester tester) async {
+  Future<void> mount(WidgetTester tester) async {
     await tester.pumpAppWidget(
       ChangeNotifierProvider<AudioProvider>.value(
         value: audioMock,
@@ -40,7 +40,7 @@ void main() {
   }
 
   testWidgets('renders', (WidgetTester tester) async {
-    await _mount(tester);
+    await mount(tester);
     await expectLater(
       find.byType(SongCard),
       matchesGoldenFile('goldens/song_card.png'),
@@ -48,7 +48,7 @@ void main() {
   });
 
   testWidgets('plays when tapped', (WidgetTester tester) async {
-    await _mount(tester);
+    await mount(tester);
     await tester.tap(find.byType(SongCard));
     verify(audioMock.play(song: song)).called(1);
   });
@@ -56,7 +56,7 @@ void main() {
   testWidgets(
     'opens action sheet when long pressed',
     (WidgetTester tester) async {
-      await _mount(tester);
+      await mount(tester);
       await tester.longPress(find.byType(SongCard));
       verify(router.showPlayableActionSheet(any, playable: song)).called(1);
     },

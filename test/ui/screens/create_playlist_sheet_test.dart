@@ -18,7 +18,7 @@ void main() {
     playlistProviderMock = MockPlaylistProvider();
   });
 
-  Future<void> _mount(WidgetTester tester) async {
+  Future<void> mount(WidgetTester tester) async {
     await tester.pumpAppWidget(
       ChangeNotifierProvider<PlaylistProvider>.value(
         value: playlistProviderMock,
@@ -28,7 +28,7 @@ void main() {
   }
 
   testWidgets('renders', (WidgetTester tester) async {
-    await _mount(tester);
+    await mount(tester);
     await tester.enterText(
       find.byKey(CreatePlaylistSheet.nameFieldKey),
       'Best Bananas',
@@ -45,7 +45,7 @@ void main() {
     when(playlistProviderMock.create(name: 'Best Bananas'))
         .thenAnswer((value) async => Playlist.fake());
 
-    await _mount(tester);
+    await mount(tester);
     await tester.enterText(
       find.byKey(CreatePlaylistSheet.nameFieldKey),
       'Best Bananas',
@@ -62,7 +62,7 @@ void main() {
   testWidgets('creating a playlist fails', (WidgetTester tester) async {
     when(playlistProviderMock.create(name: 'Best Bananas')).thenThrow(Error());
 
-    await _mount(tester);
+    await mount(tester);
     await tester.enterText(
       find.byKey(CreatePlaylistSheet.nameFieldKey),
       'Best Bananas',

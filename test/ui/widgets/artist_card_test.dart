@@ -33,7 +33,7 @@ void main() {
     MockAppRouter router = MockAppRouter();
     when(
       router.gotoArtistDetailsScreen(any, artist: artist),
-    ).thenAnswer((_) async => null);
+    ).thenAnswer((_) async {});
 
     await tester.pumpAppWidget(ArtistCard(artist: artist, router: router));
 
