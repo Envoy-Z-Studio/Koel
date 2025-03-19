@@ -16,9 +16,9 @@ class PodcastsScreen extends StatefulWidget {
   final AppRouter router;
 
   const PodcastsScreen({
-    Key? key,
+    super.key,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _PodcastScreenState createState() => _PodcastScreenState();
@@ -178,9 +178,9 @@ class _PodcastScreenState extends State<PodcastsScreen> {
               onPressed: () => Navigator.pop(context, false),
             ),
             CupertinoDialogAction(
-              child: const Text('Confirm'),
               isDestructiveAction: true,
               onPressed: () => Navigator.pop(context, true),
+              child: const Text('Confirm'),
             ),
           ],
         );
@@ -193,8 +193,7 @@ class PodcastRow extends StatelessWidget {
   final Podcast podcast;
   final AppRouter router;
 
-  const PodcastRow({Key? key, required this.podcast, required this.router})
-      : super(key: key);
+  const PodcastRow({super.key, required this.podcast, required this.router});
 
   @override
   Widget build(BuildContext context) {
@@ -222,7 +221,7 @@ class PodcastRow extends StatelessWidget {
 class NoPodcastsScreen extends StatelessWidget {
   final void Function() onTap;
 
-  const NoPodcastsScreen({Key? key, required this.onTap}) : super(key: key);
+  const NoPodcastsScreen({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -267,11 +266,11 @@ class PodcastSortButton extends StatelessWidget {
   };
 
   PodcastSortButton({
-    Key? key,
+    super.key,
     required this.currentField,
     required this.currentOrder,
     this.onMenuItemSelected,
-  }) : super(key: key) {}
+  });
 
   PopupMenuItem<PodcastSortField> buildMenuItem(
     PodcastSortField field,

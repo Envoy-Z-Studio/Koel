@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 class SongsScreen extends StatefulWidget {
   static const routeName = '/songs';
 
-  const SongsScreen({Key? key}) : super(key: key);
+  const SongsScreen({super.key});
 
   @override
   _SongsScreenState createState() => _SongsScreenState();
@@ -168,9 +168,9 @@ class _SongsScreenState extends State<SongsScreen> {
                 ),
                 _loading
                     ? SliverToBoxAdapter(
-                        child: Container(
+                        child: SizedBox(
                           height: 72,
-                          child: const Center(child: const Spinner(size: 16)),
+                          child: const Center(child: Spinner(size: 16)),
                         ),
                       )
                     : const SliverToBoxAdapter(),
@@ -192,13 +192,13 @@ class SongListHeader extends StatefulWidget {
   final Function() onSearchCollapsed;
 
   const SongListHeader({
-    Key? key,
+    super.key,
     required this.sortField,
     required this.sortOrder,
     required this.onSearchQueryChanged,
     required this.onSearchExpanded,
     required this.onSearchCollapsed,
-  }) : super(key: key);
+  });
 
   @override
   _SongListHeaderState createState() => _SongListHeaderState();

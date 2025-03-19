@@ -4,7 +4,7 @@ import 'package:shimmer/shimmer.dart';
 class GradientPlaceholder extends StatelessWidget {
   final Widget child;
 
-  const GradientPlaceholder({Key? key, required this.child}) : super(key: key);
+  const GradientPlaceholder({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {

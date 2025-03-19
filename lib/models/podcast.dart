@@ -30,8 +30,8 @@ class Podcast {
   });
 
   ImageProvider get image {
-    this._image ??= CachedNetworkImageProvider(this.imageUrl);
-    return this._image!;
+    _image ??= CachedNetworkImageProvider(imageUrl);
+    return _image!;
   }
 
   factory Podcast.fromJson(Map<String, dynamic> json) {
@@ -52,13 +52,13 @@ class Podcast {
   compare(Podcast other, PodcastSortField field) {
     switch (field) {
       case PodcastSortField.lastPlayedAt:
-        return this.lastPlayedAt.compareTo(other.lastPlayedAt);
+        return lastPlayedAt.compareTo(other.lastPlayedAt);
       case PodcastSortField.subscribedAt:
-        return this.subscribedAt.compareTo(other.subscribedAt);
+        return subscribedAt.compareTo(other.subscribedAt);
       case PodcastSortField.title:
-        return this.title.compareTo(other.title);
+        return title.compareTo(other.title);
       case PodcastSortField.author:
-        return this.author.compareTo(other.author);
+        return author.compareTo(other.author);
     }
   }
 }

@@ -5,9 +5,9 @@ class CirclePlaceholder extends StatelessWidget {
   final double size;
 
   const CirclePlaceholder({
-    Key? key,
+    super.key,
     this.size = 32,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

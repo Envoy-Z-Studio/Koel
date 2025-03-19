@@ -5,7 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 class Spinner extends StatelessWidget {
   final double size;
 
-  const Spinner({Key? key, this.size = 32.0}) : super(key: key);
+  const Spinner({super.key, this.size = 32.0});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,7 @@ class Spinner extends StatelessWidget {
 class ContainerWithSpinner extends StatelessWidget {
   final double spinnerSize;
 
-  const ContainerWithSpinner({Key? key, this.spinnerSize = 32.0})
-      : super(key: key);
+  const ContainerWithSpinner({super.key, this.spinnerSize = 32.0});
 
   @override
   Widget build(BuildContext context) {

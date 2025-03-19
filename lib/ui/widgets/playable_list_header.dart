@@ -28,7 +28,7 @@ class PlayableListHeader extends StatefulWidget {
   final Widget? shuffleIcon;
 
   const PlayableListHeader({
-    Key? key,
+    super.key,
     required this.playables,
     this.onSearchQueryChanged,
     this.onSearchExpanded,
@@ -37,7 +37,7 @@ class PlayableListHeader extends StatefulWidget {
     this.onShufflePressed,
     this.playIcon,
     this.shuffleIcon,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _PlayableListHeaderState();
@@ -85,13 +85,13 @@ class _PlayableListHeaderState extends State<PlayableListHeader> {
         const SizedBox(width: 6),
         ElevatedButton(
           onPressed: onShufflePressed,
-          child: SizedBox.square(dimension: 24, child: shuffleIcon),
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.all(16),
             elevation: 0,
             shape: CircleBorder(),
             backgroundColor: AppColors.highlight,
           ),
+          child: SizedBox.square(dimension: 24, child: shuffleIcon),
         ),
       ],
     );

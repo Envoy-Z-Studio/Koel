@@ -7,8 +7,7 @@ class FrostedGlassBackground extends StatelessWidget {
   final Widget child;
 
   const FrostedGlassBackground(
-      {Key? key, required this.child, this.sigma = 20.0})
-      : super(key: key);
+      {super.key, required this.child, this.sigma = 20.0});
 
   @override
   Widget build(BuildContext context) {

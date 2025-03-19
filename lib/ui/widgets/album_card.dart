@@ -7,11 +7,11 @@ class AlbumCard extends StatefulWidget {
   final Album album;
   final AppRouter router;
 
-  AlbumCard({
-    Key? key,
+  const AlbumCard({
+    super.key,
     required this.album,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _AlbumCardState createState() => _AlbumCardState();

@@ -16,14 +16,14 @@ class InfoSheet extends StatefulWidget {
   final Playable playable;
   final ScrollController scroller;
 
-  const InfoSheet({Key? key, required this.playable, required this.scroller})
-      : super(key: key);
+  const InfoSheet({super.key, required this.playable, required this.scroller});
 
   @override
   _InfoSheetState createState() => _InfoSheetState();
 }
 
 class _InfoSheetState extends State<InfoSheet> {
+  @override
   Widget build(BuildContext context) {
     Widget wrapTabPane(Widget pane) {
       return FadingEdgeScrollView.fromSingleChildScrollView(
@@ -88,8 +88,7 @@ class InfoHtml extends StatelessWidget {
   final String content;
   final Style? style;
 
-  const InfoHtml({Key? key, required this.content, this.style})
-      : super(key: key);
+  const InfoHtml({super.key, required this.content, this.style});
 
   @override
   Widget build(BuildContext context) {

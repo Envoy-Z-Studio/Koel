@@ -12,11 +12,11 @@ class OopsBox extends StatelessWidget {
   final String? message;
 
   const OopsBox({
-    Key? key,
+    super.key,
     this.message,
     this.onRetry,
     this.showLogOutButton = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

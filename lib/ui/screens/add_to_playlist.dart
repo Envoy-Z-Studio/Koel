@@ -15,9 +15,9 @@ class AddToPlaylistScreen extends StatelessWidget {
   final AppRouter router;
 
   const AddToPlaylistScreen({
-    Key? key,
+    super.key,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

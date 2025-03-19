@@ -3,7 +3,7 @@ import 'package:app/ui/placeholders/circle_placeholder.dart';
 import 'package:flutter/material.dart';
 
 class PlayableRowPlaceholder extends StatelessWidget {
-  const PlayableRowPlaceholder({Key? key}) : super(key: key);
+  const PlayableRowPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -65,7 +65,7 @@ class AuthProvider with StreamSubscriber {
 
     var user = User.fromJson(await get('me'));
 
-    this.setAuthUser(user);
+    setAuthUser(user);
     _userLoggedIn.add(user);
 
     return authUser;

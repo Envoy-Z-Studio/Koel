@@ -12,13 +12,13 @@ class SliverPlayableList extends StatelessWidget {
   final Widget dismissIcon;
   final Function(Playable playable)? onDismissed;
 
-  SliverPlayableList({
-    Key? key,
+  const SliverPlayableList({
+    super.key,
     required this.playables,
     this.listContext = PlayableListContext.other,
     this.onDismissed,
     this.dismissIcon = const Icon(CupertinoIcons.delete),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ class CreatePlaylistSheet extends StatefulWidget {
   static final Key nameFieldKey = UniqueKey();
   static final Key submitButtonKey = UniqueKey();
 
-  const CreatePlaylistSheet({Key? key}) : super(key: key);
+  const CreatePlaylistSheet({super.key});
 
   @override
   _AddPlaylistScreenState createState() => _AddPlaylistScreenState();

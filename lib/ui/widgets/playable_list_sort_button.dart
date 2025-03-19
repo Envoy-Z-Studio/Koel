@@ -22,12 +22,12 @@ class SortButton extends StatelessWidget {
   };
 
   SortButton({
-    Key? key,
+    super.key,
     required this.fields,
     required this.currentField,
     required this.currentOrder,
     this.onMenuItemSelected,
-  }) : super(key: key) {
+  }) {
     assert(fields.isNotEmpty);
     assert(fields.every((field) => sortFields.containsKey(field)));
     assert(fields.contains(currentField));

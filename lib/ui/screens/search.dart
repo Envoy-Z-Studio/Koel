@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 class SearchScreen extends StatefulWidget {
   static const routeName = '/search';
 
-  const SearchScreen({Key? key}) : super(key: key);
+  const SearchScreen({super.key});
 
   @override
   _SearchScreenState createState() => _SearchScreenState();
@@ -42,7 +42,7 @@ class _SearchScreenState extends State<SearchScreen> {
   _search(String keywords) =>
       EasyDebounce.debounce('search', const Duration(microseconds: 500),
           () async {
-        if (keywords.length == 0) return _resetSearch();
+        if (keywords.isEmpty) return _resetSearch();
         if (keywords.length < 2) return;
 
         SearchResult result = await searchProvider.searchExcerpts(
@@ -70,7 +70,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   void _resetSearch() {
     _controller.text = '';
-    this.setState(() => _initial = true);
+    setState(() => _initial = true);
   }
 
   Widget get searchField {

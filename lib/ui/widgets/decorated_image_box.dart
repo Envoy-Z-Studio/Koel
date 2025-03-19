@@ -5,10 +5,10 @@ class DecoratedImageBox extends StatelessWidget {
   final double borderRadius;
 
   const DecoratedImageBox({
-    Key? key,
+    super.key,
     required this.image,
     required this.borderRadius,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

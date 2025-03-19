@@ -10,7 +10,7 @@ class AppImages {
   static const defaultImageAssetName = 'assets/images/default-image.webp';
   static Uri? _defaultArtUri;
 
-  static const defaultImage = const Image(
+  static const defaultImage = Image(
     image: AssetImage(defaultImageAssetName),
   );
 

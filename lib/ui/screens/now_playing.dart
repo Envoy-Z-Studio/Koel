@@ -16,9 +16,9 @@ class NowPlayingScreen extends StatefulWidget {
   final AppRouter router;
 
   const NowPlayingScreen({
-    Key? key,
+    super.key,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _NowPlayingScreenState();

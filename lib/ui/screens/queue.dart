@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 class QueueScreen extends StatefulWidget {
   static const routeName = '/queue';
 
-  const QueueScreen({Key? key}) : super(key: key);
+  const QueueScreen({super.key});
 
   @override
   State<StatefulWidget> createState() => _QueueScreenState();
@@ -57,7 +57,7 @@ class _QueueScreenState extends State<QueueScreen> with StreamSubscriber {
                     onPressed: () async => await audioHandler.clearQueue(),
                     child: const Text(
                       'Clear',
-                      style: const TextStyle(color: Colors.red),
+                      style: TextStyle(color: Colors.red),
                     ),
                   ),
               ],

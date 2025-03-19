@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 class NoConnectionScreen extends StatefulWidget {
   static const routeName = '/no-connection';
 
-  const NoConnectionScreen({Key? key}) : super(key: key);
+  const NoConnectionScreen({super.key});
 
   @override
   _NoConnectionScreenState createState() => _NoConnectionScreenState();

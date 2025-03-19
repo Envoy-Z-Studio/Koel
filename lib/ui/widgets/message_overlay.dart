@@ -14,14 +14,14 @@ class MessageOverlay extends StatefulWidget {
   final void Function()? onDismiss;
 
   const MessageOverlay({
-    Key? key,
+    super.key,
     this.caption,
     this.message,
     this.icon = CupertinoIcons.check_mark_circled_solid,
     this.iconColor = Colors.white30,
     this.timeOut = const Duration(seconds: 2),
     this.onDismiss,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _MessageOverlayState();
@@ -127,18 +127,18 @@ void showOverlay(
   Color iconColor = Colors.white30,
   Duration timeOut = const Duration(seconds: 2),
 }) {
-  late OverlayEntry _entry;
+  late OverlayEntry entry;
 
-  _entry = OverlayEntry(builder: (_) {
+  entry = OverlayEntry(builder: (_) {
     return MessageOverlay(
       caption: caption,
       message: message,
       icon: icon,
       iconColor: iconColor,
       timeOut: timeOut,
-      onDismiss: () => _entry.remove(),
+      onDismiss: () => entry.remove(),
     );
   });
 
-  Navigator.of(context).overlay?.insert(_entry);
+  Navigator.of(context).overlay?.insert(entry);
 }

@@ -58,7 +58,7 @@ class DownloadProvider with StreamSubscriber {
       '${preferences.host}${preferences.userEmail}'.toLowerCase(),
     );
 
-    return '${documentsDir.path}/${hash}';
+    return '${documentsDir.path}/$hash';
   }
 
   Future<void> _collectDownloads() async {
@@ -68,22 +68,22 @@ class DownloadProvider with StreamSubscriber {
 
     var downloadsDir = await this.downloadsDir;
 
-    serializedPlayables.forEach((json) {
+    for (var json in serializedPlayables) {
       var playable = Playable.fromJson(json);
       final file = _localFile(downloadsDir, playable);
 
       if (file.existsSync() && !_downloads.any((d) => d.playable == playable)) {
         _downloads.add(Download(playable: playable, path: file.path));
       }
-    });
+    }
 
-    _playableProvider.syncWithVault(this.playables);
+    _playableProvider.syncWithVault(playables);
   }
 
   File _localFile(String downloadsDir, Playable playable) {
     // just_audio requires a valid extension on iOS
     // see https://github.com/ryanheise/just_audio/issues/289
-    return File('${downloadsDir}/${playable.cacheKey}.mp3');
+    return File('$downloadsDir/${playable.cacheKey}.mp3');
   }
 
   get serializedPlayableKey =>

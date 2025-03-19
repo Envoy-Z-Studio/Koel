@@ -19,14 +19,14 @@ class PlayableProvider with ChangeNotifier, StreamSubscriber {
     }));
   }
 
-  List<Playable> syncWithVault(dynamic _playables) {
-    assert(_playables is List<Playable> || _playables is Playable);
+  List<Playable> syncWithVault(dynamic playables) {
+    assert(playables is List<Playable> || playables is Playable);
 
-    if (_playables is Playable) {
-      _playables = [_playables];
+    if (playables is Playable) {
+      playables = [playables];
     }
 
-    return (_playables as List<Playable>)
+    return (playables as List<Playable>)
         .map<Playable>((remote) {
           final local = byId(remote.id);
 
@@ -57,10 +57,10 @@ class PlayableProvider with ChangeNotifier, StreamSubscriber {
         res['data'].map<Playable>((j) => Playable.fromJson(j)).toList();
     final synced = syncWithVault(items);
 
-    playables = [...playables, ...synced].toSet().toList();
+    playables = (<dynamic>{...playables, ...synced}.toList()) as List<Playable<dynamic>>;
     notifyListeners();
 
-    return new PaginationResult(
+    return PaginationResult(
       items: synced,
       nextPage:
           res['links']['next'] == null ? null : ++res['meta']['current_page'],

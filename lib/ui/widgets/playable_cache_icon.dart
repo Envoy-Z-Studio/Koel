@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 class PlayableCacheIcon extends StatefulWidget {
   final Playable playable;
 
-  const PlayableCacheIcon({Key? key, required this.playable}) : super(key: key);
+  const PlayableCacheIcon({super.key, required this.playable});
 
   @override
   _PlayableCacheIconState createState() => _PlayableCacheIconState();
@@ -78,11 +78,11 @@ class _PlayableCacheIconState extends State<PlayableCacheIcon>
   @override
   Widget build(BuildContext context) {
     late final Widget icon;
-    VoidCallback? action = null;
+    VoidCallback? action;
 
     if (_downloading) {
       icon = CupertinoActivityIndicator(radius: 9, color: AppColors.white);
-    } else if (this._downloaded == true) {
+    } else if (_downloaded == true) {
       icon = Icon(
         CupertinoIcons.checkmark_alt_circle_fill,
         size: 18,

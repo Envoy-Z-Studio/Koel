@@ -24,9 +24,9 @@ class FavoriteProvider with ChangeNotifier, StreamSubscriber {
       playables = AppState.get<List<Playable>>(['favorites'])!;
     } else {
       final response = await get('songs/favorite');
-      final _playables =
+      var playables =
           response.map<Playable>((j) => Playable.fromJson(j)).toList();
-      playables = _playableProvider.syncWithVault(_playables);
+      playables = _playableProvider.syncWithVault(playables);
       AppState.set(['favorites'], playables);
     }
 

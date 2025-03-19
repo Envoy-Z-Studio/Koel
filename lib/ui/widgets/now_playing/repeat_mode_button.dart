@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RepeatModeButton extends StatefulWidget {
-  const RepeatModeButton({Key? key}) : super(key: key);
+  const RepeatModeButton({super.key});
 
   @override
   _RepeatModeButtonState createState() => _RepeatModeButtonState();

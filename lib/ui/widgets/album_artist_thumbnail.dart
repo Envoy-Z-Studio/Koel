@@ -11,20 +11,18 @@ class AlbumArtistThumbnail extends StatelessWidget {
   final bool asHero;
 
   const AlbumArtistThumbnail.sm({
-    Key? key,
+    super.key,
     required this.entity,
     this.asHero = false,
   })  : size = ThumbnailSize.sm,
-        assert(entity is Artist || entity is Album || entity is Podcast),
-        super(key: key);
+        assert(entity is Artist || entity is Album || entity is Podcast);
 
   const AlbumArtistThumbnail.md({
-    Key? key,
+    super.key,
     required this.entity,
     this.asHero = false,
   })  : size = ThumbnailSize.md,
-        assert(entity is Artist || entity is Album || entity is Podcast),
-        super(key: key);
+        assert(entity is Artist || entity is Album || entity is Podcast);
 
   @override
   Widget build(BuildContext context) {

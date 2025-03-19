@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 class PodcastDetailsScreen extends StatefulWidget {
   static const routeName = '/podcast';
 
-  const PodcastDetailsScreen({Key? key}) : super(key: key);
+  const PodcastDetailsScreen({super.key});
 
   @override
   _PodcastDetailsScreen createState() => _PodcastDetailsScreen();
@@ -52,11 +52,13 @@ class _PodcastDetailsScreen extends State<PodcastDetailsScreen> {
           future: buildRequest(podcastId),
           builder: (_, AsyncSnapshot<List<Object>> snapshot) {
             if (!snapshot.hasData ||
-                snapshot.connectionState == ConnectionState.active)
+                snapshot.connectionState == ConnectionState.active) {
               return const PlayableListScreenPlaceholder();
+            }
 
-            if (snapshot.hasError)
+            if (snapshot.hasError) {
               return OopsBox(onRetry: () => setState(() {}));
+            }
 
             final songs = snapshot.data == null
                 ? <Song>[]
@@ -78,8 +80,8 @@ class _PodcastDetailsScreen extends State<PodcastDetailsScreen> {
                           fields: ['title', 'created_at'],
                           currentField: sortConfig.field,
                           currentOrder: sortConfig.order,
-                          onMenuItemSelected: (_sortConfig) {
-                            setState(() => sortConfig = _sortConfig);
+                          onMenuItemSelected: (sortConfig) {
+                            setState(() => sortConfig = sortConfig);
                             AppState.set('podcast.sort', sortConfig);
                           },
                         ),
@@ -115,10 +117,10 @@ class _PodcastDetailsScreen extends State<PodcastDetailsScreen> {
                               Radius.circular(16),
                             ),
                             boxShadow: const <BoxShadow>[
-                              const BoxShadow(
+                              BoxShadow(
                                 color: Colors.black38,
                                 blurRadius: 10.0,
-                                offset: const Offset(0, 6),
+                                offset: Offset(0, 6),
                               ),
                             ],
                           ),

@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 class MainScreen extends StatefulWidget {
   static const routeName = '/main';
 
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -26,12 +26,12 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   static const tabBarHeight = 60.0;
   int _selectedIndex = 0;
-  var _isOffline = AppState.get('mode', AppMode.online) == AppMode.offline;
+  final _isOffline = AppState.get('mode', AppMode.online) == AppMode.offline;
 
   static const List<Widget> _widgetOptions = [
-    const HomeScreen(),
-    const SearchScreen(),
-    const LibraryScreen(),
+    HomeScreen(),
+    SearchScreen(),
+    LibraryScreen(),
   ];
 
   void _onItemTapped(int index) => setState(() => _selectedIndex = index);
@@ -136,7 +136,7 @@ class _MainScreenState extends State<MainScreen> {
 }
 
 class ConnectivityInfoBox extends StatefulWidget {
-  const ConnectivityInfoBox({Key? key}) : super(key: key);
+  const ConnectivityInfoBox({super.key});
 
   @override
   _ConnectivityInfoBoxState createState() => _ConnectivityInfoBoxState();
@@ -166,7 +166,7 @@ class _ConnectivityInfoBoxState extends State<ConnectivityInfoBox>
     var padding = EdgeInsets.only(top: 16, bottom: Platform.isIOS ? 32 : 16);
 
     return FrostedGlassBackground(
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         child: _offline
             ? Container(
@@ -187,7 +187,7 @@ class _ConnectivityInfoBoxState extends State<ConnectivityInfoBox>
                       ),
                     ]),
               )
-            : Container(
+            : SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(

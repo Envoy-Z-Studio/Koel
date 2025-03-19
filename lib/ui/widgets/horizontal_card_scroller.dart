@@ -9,10 +9,10 @@ class HorizontalCardScroller extends StatelessWidget {
   final String? headingText;
 
   const HorizontalCardScroller({
-    Key? key,
+    super.key,
     required this.cards,
     this.headingText,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +48,10 @@ class PlaceholderCard extends StatelessWidget {
   final void Function()? onPressed;
 
   const PlaceholderCard({
-    Key? key,
+    super.key,
     required this.icon,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +69,10 @@ class PlaceholderCard extends StatelessWidget {
         dimension: AlbumArtistThumbnail.dimensionForSize(ThumbnailSize.md),
         child: ElevatedButton(
           onPressed: onPressed,
-          child: Icon(icon, size: 32),
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.highlight,
           ),
+          child: Icon(icon, size: 32),
         ),
       ),
     );

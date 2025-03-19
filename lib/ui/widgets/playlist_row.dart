@@ -11,9 +11,9 @@ class PlaylistRow extends StatefulWidget {
 
   final void Function()? onTap;
 
-  const PlaylistRow({Key? key, required this.playlist, this.onTap})
-      : super(key: key);
+  const PlaylistRow({super.key, required this.playlist, this.onTap});
 
+  @override
   _PlaylistRowState createState() => _PlaylistRowState();
 }
 
@@ -49,7 +49,7 @@ class _PlaylistRowState extends State<PlaylistRow> with StreamSubscriber {
 class PlaylistThumbnail extends StatelessWidget {
   final Playlist playlist;
 
-  const PlaylistThumbnail({Key? key, required this.playlist}) : super(key: key);
+  const PlaylistThumbnail({super.key, required this.playlist});
 
   @override
   Widget build(BuildContext context) {

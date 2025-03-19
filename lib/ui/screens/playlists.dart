@@ -12,9 +12,9 @@ class PlaylistsScreen extends StatefulWidget {
   final AppRouter router;
 
   const PlaylistsScreen({
-    Key? key,
+    super.key,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _PlaylistsScreenState createState() => _PlaylistsScreenState();
@@ -142,9 +142,9 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
               onPressed: () => Navigator.pop(context, false),
             ),
             CupertinoDialogAction(
-              child: const Text('Confirm'),
               isDestructiveAction: true,
               onPressed: () => Navigator.pop(context, true),
+              child: const Text('Confirm'),
             ),
           ],
         );
@@ -156,7 +156,7 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
 class NoPlaylistsScreen extends StatelessWidget {
   final void Function() onTap;
 
-  const NoPlaylistsScreen({Key? key, required this.onTap}) : super(key: key);
+  const NoPlaylistsScreen({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

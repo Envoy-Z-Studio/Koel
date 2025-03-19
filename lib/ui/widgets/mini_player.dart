@@ -21,9 +21,9 @@ class MiniPlayer extends StatefulWidget {
   final AppRouter router;
 
   const MiniPlayer({
-    Key? key,
+    super.key,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _MiniPlayerState createState() => _MiniPlayerState();
@@ -200,7 +200,7 @@ class _MiniPlayerState extends State<MiniPlayer> with StreamSubscriber {
 }
 
 class MiniPlayerProgressBar extends StatefulWidget {
-  const MiniPlayerProgressBar({Key? key}) : super(key: key);
+  const MiniPlayerProgressBar({super.key});
 
   @override
   _MiniPlayerProgressBarState createState() => _MiniPlayerProgressBarState();

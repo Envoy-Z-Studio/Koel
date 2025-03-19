@@ -14,9 +14,9 @@ class ArtistsScreen extends StatefulWidget {
   final AppRouter router;
 
   const ArtistsScreen({
-    Key? key,
+    super.key,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _ArtistsScreenState createState() => _ArtistsScreenState();
@@ -119,7 +119,7 @@ class _ArtistsScreenState extends State<ArtistsScreen> {
                       ),
                       _loading
                           ? SliverToBoxAdapter(
-                              child: Container(
+                              child: SizedBox(
                                 height: 72,
                                 child: Center(child: const Spinner(size: 16)),
                               ),
@@ -142,8 +142,7 @@ class ArtistRow extends StatelessWidget {
   final Artist artist;
   final AppRouter router;
 
-  const ArtistRow({Key? key, required this.artist, required this.router})
-      : super(key: key);
+  const ArtistRow({super.key, required this.artist, required this.router});
 
   @override
   Widget build(BuildContext context) {

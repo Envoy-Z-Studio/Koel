@@ -10,10 +10,10 @@ class SongCard extends StatefulWidget {
   final AppRouter router;
 
   const SongCard({
-    Key? key,
+    super.key,
     required this.song,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _SongCardState createState() => _SongCardState();

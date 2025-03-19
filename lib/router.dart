@@ -66,7 +66,7 @@ class AppRouter {
       useRootNavigator: true,
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
-        return Container(
+        return SizedBox(
           height: MediaQuery.of(context).size.height,
           child: const NowPlayingScreen(),
         );
@@ -81,7 +81,7 @@ class AppRouter {
       useRootNavigator: true,
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
-        return Container(
+        return SizedBox(
           height: MediaQuery.of(context).size.height,
           child: const CreatePlaylistSheet(),
         );
@@ -108,7 +108,7 @@ class AppRouter {
       useRootNavigator: true,
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
-        return Container(
+        return SizedBox(
           height: MediaQuery.of(context).size.height,
           child: const AddPodcastSheet(),
         );

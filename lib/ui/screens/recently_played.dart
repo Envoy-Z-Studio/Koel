@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 class RecentlyPlayedScreen extends StatefulWidget {
   static const routeName = '/recently-played';
 
-  const RecentlyPlayedScreen({Key? key}) : super(key: key);
+  const RecentlyPlayedScreen({super.key});
 
   @override
   State<StatefulWidget> createState() => _RecentlyPlayedScreenState();

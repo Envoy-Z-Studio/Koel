@@ -2,7 +2,7 @@ import 'package:app/ui/placeholders/placeholders.dart';
 import 'package:flutter/material.dart';
 
 class PodcastsScreenPlaceholder extends StatelessWidget {
-  const PodcastsScreenPlaceholder({Key? key}) : super(key: key);
+  const PodcastsScreenPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class PodcastsScreenPlaceholder extends StatelessWidget {
 }
 
 class PodcastRowPlaceholder extends StatelessWidget {
-  const PodcastRowPlaceholder({Key? key}) : super(key: key);
+  const PodcastRowPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {

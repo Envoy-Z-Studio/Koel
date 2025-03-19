@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 
 class AudioControls extends StatelessWidget {
-  const AudioControls({Key? key}) : super(key: key);
+  const AudioControls({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class AudioControls extends StatelessWidget {
 }
 
 class PlayPauseButton extends StatefulWidget {
-  const PlayPauseButton({Key? key}) : super(key: key);
+  const PlayPauseButton({super.key});
 
   @override
   _PlayPauseButtonState createState() => _PlayPauseButtonState();

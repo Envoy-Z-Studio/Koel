@@ -6,8 +6,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/widgets.dart';
 
 class Episode extends Playable<Episode> {
+  @override
   String id;
+  @override
   num length;
+  @override
   String title;
   String podcastId;
   String podcastTitle;
@@ -15,6 +18,7 @@ class Episode extends Playable<Episode> {
   String description;
   String imageUrl;
   String? link;
+  @override
   DateTime createdAt;
 
   ImageProvider? _image;
@@ -52,16 +56,16 @@ class Episode extends Playable<Episode> {
 
   @override
   ImageProvider get image {
-    this._image ??= CachedNetworkImageProvider(this.imageUrl);
-    return this._image!;
+    _image ??= CachedNetworkImageProvider(imageUrl);
+    return _image!;
   }
 
   @override
   String get sourceUrl {
-    this._cachedSourceUrl ??=
+    _cachedSourceUrl ??=
         Uri.encodeFull('$host/play/$id?t=${preferences.audioToken}');
 
-    return this._cachedSourceUrl!;
+    return _cachedSourceUrl!;
   }
 
   factory Episode.fromJson(Map<String, dynamic> json) {

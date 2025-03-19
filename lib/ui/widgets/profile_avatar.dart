@@ -11,7 +11,7 @@ enum ProfileAvatarMenuItems {
 }
 
 class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar({Key? key}) : super(key: key);
+  const ProfileAvatar({super.key});
 
   void logout(BuildContext context) {
     showCupertinoDialog(
@@ -25,7 +25,6 @@ class ProfileAvatar extends StatelessWidget {
               onPressed: () => Navigator.pop(context),
             ),
             CupertinoDialogAction(
-              child: const Text('Confirm'),
               isDestructiveAction: true,
               onPressed: () async {
                 await context.read<AuthProvider>().logout();
@@ -35,6 +34,7 @@ class ProfileAvatar extends StatelessWidget {
                   rootNavigator: true,
                 ).pushNamedAndRemoveUntil(LoginScreen.routeName, (_) => false);
               },
+              child: const Text('Confirm'),
             ),
           ],
         );
@@ -57,7 +57,6 @@ class ProfileAvatar extends StatelessWidget {
             break;
         }
       },
-      child: const Icon(CupertinoIcons.person_alt_circle, size: 24),
       offset: const Offset(0, 32),
       itemBuilder: (_) => [
         const PopupMenuItem(
@@ -70,6 +69,7 @@ class ProfileAvatar extends StatelessWidget {
           child: Text('Log out'),
         ),
       ],
+      child: const Icon(CupertinoIcons.person_alt_circle, size: 24),
     );
   }
 }

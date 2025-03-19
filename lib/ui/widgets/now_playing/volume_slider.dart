@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 
 class VolumeSlider extends StatefulWidget {
-  const VolumeSlider({Key? key}) : super(key: key);
+  const VolumeSlider({super.key});
 
   @override
   _VolumeSliderState createState() => _VolumeSliderState();

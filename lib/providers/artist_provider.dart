@@ -24,11 +24,11 @@ class ArtistProvider with ChangeNotifier, StreamSubscriber {
   List<Artist> byIds(List<int> ids) {
     final artists = <Artist>[];
 
-    ids.forEach((id) {
+    for (var id in ids) {
       if (_vault.containsKey(id)) {
         artists.add(_vault[id]!);
       }
-    });
+    }
 
     return artists;
   }
@@ -41,14 +41,14 @@ class ArtistProvider with ChangeNotifier, StreamSubscriber {
     return _vault[id]!;
   }
 
-  List<Artist> syncWithVault(dynamic _artists) {
-    assert(_artists is List<Artist> || _artists is Artist);
+  List<Artist> syncWithVault(dynamic artists) {
+    assert(artists is List<Artist> || artists is Artist);
 
-    if (_artists is Artist) {
-      _artists = [_artists];
+    if (artists is Artist) {
+      artists = [artists];
     }
 
-    List<Artist> synced = (_artists as List<Artist>)
+    List<Artist> synced = (artists as List<Artist>)
         .map<Artist>((remote) {
           final local = byId(remote.id);
 
@@ -70,12 +70,12 @@ class ArtistProvider with ChangeNotifier, StreamSubscriber {
   Future<void> paginate() async {
     final res = await get('artists?page=$_page');
 
-    final _artists = (res['data'] as List)
+    var artists = (res['data'] as List)
         .map<Artist>((artist) => Artist.fromJson(artist))
         .toList();
 
-    List<Artist> synced = syncWithVault(_artists);
-    artists = [...artists, ...synced].toSet().toList();
+    List<Artist> synced = syncWithVault(artists);
+    artists = (<dynamic>{...artists, ...synced}.toList()) as List<Artist>;
 
     _page = res['links']['next'] == null ? 1 : ++res['meta']['current_page'];
 

@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 class FavoritesScreen extends StatefulWidget {
   static const routeName = '/favorites';
 
-  const FavoritesScreen({Key? key}) : super(key: key);
+  const FavoritesScreen({super.key});
 
   @override
   _FavoritesScreenState createState() => _FavoritesScreenState();
@@ -138,8 +138,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                                 fields: ['title', 'artist_name', 'created_at'],
                                 currentField: sortConfig.field,
                                 currentOrder: sortConfig.order,
-                                onMenuItemSelected: (_sortConfig) {
-                                  setState(() => sortConfig = _sortConfig);
+                                onMenuItemSelected: (sortConfig) {
+                                  setState(() => sortConfig = sortConfig);
                                   AppState.set('favorites.sort', sortConfig);
                                 },
                               ),

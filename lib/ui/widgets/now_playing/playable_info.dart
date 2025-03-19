@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class PlayableInfo extends StatelessWidget {
   final Playable playable;
 
-  const PlayableInfo({Key? key, required this.playable}) : super(key: key);
+  const PlayableInfo({super.key, required this.playable});
 
   @override
   Widget build(BuildContext context) {

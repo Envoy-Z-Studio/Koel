@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 class InitialScreen extends StatefulWidget {
   static const routeName = '/';
 
-  const InitialScreen({Key? key}) : super(key: key);
+  const InitialScreen({super.key});
 
   @override
   _InitialScreenState createState() => _InitialScreenState();

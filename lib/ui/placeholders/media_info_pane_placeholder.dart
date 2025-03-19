@@ -3,7 +3,7 @@ import 'package:app/ui/placeholders/gradient_placeholder.dart';
 import 'package:flutter/material.dart';
 
 class MediaInfoPanePlaceholder extends StatelessWidget {
-  const MediaInfoPanePlaceholder({Key? key}) : super(key: key);
+  const MediaInfoPanePlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +24,10 @@ class MediaInfoPanePlaceholder extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 6),
-          ...List.generate(4, (_) => const LineOfText()).toList(),
+          ...List.generate(4, (_) => const LineOfText()),
           const LineOfText(width: 120),
           const SizedBox(height: 18),
-          ...List.generate(2, (_) => const LineOfText()).toList(),
+          ...List.generate(2, (_) => const LineOfText()),
           const LineOfText(width: 180),
         ],
       ),
@@ -38,7 +38,7 @@ class MediaInfoPanePlaceholder extends StatelessWidget {
 class LineOfText extends StatelessWidget {
   final double? width;
 
-  const LineOfText({Key? key, this.width}) : super(key: key);
+  const LineOfText({super.key, this.width});
 
   @override
   Widget build(BuildContext context) {

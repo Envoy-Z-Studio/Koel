@@ -12,8 +12,11 @@ import 'package:uuid/uuid.dart';
 class Song extends Playable<Song> {
   late Album album;
   late Artist artist;
+  @override
   String id;
+  @override
   num length;
+  @override
   String title;
   String lyrics;
   int albumId;
@@ -27,8 +30,11 @@ class Song extends Playable<Song> {
   num disc;
   num? year;
   String genre;
+  @override
   bool liked = false;
+  @override
   int playCount = 0;
+  @override
   DateTime createdAt;
 
   ImageProvider? _cachedImage;
@@ -60,11 +66,9 @@ class Song extends Playable<Song> {
     var image = _cachedImage;
     final albumCoverUrl = this.albumCoverUrl;
 
-    if (image == null) {
-      image = albumCoverUrl == null
+    image ??= albumCoverUrl == null
           ? AppImages.defaultImage.image
           : CachedNetworkImageProvider(albumCoverUrl);
-    }
 
     return image;
   }
@@ -273,9 +277,9 @@ class Song extends Playable<Song> {
       case 'title':
         return title;
       case 'album_name':
-        return '${albumName}${albumId}${track}';
+        return '$albumName$albumId$track';
       case 'artist_name':
-        return '${artistName}${albumName}${track}';
+        return '$artistName$albumName$track';
       case 'created_at':
         return createdAt;
       case 'track':

@@ -14,9 +14,9 @@ class AlbumsScreen extends StatefulWidget {
   final AppRouter router;
 
   const AlbumsScreen({
-    Key? key,
+    super.key,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _AlbumsScreenState createState() => _AlbumsScreenState();
@@ -120,7 +120,7 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
                       ),
                       _loading
                           ? SliverToBoxAdapter(
-                              child: Container(
+                              child: SizedBox(
                                 height: 72,
                                 child: Center(child: const Spinner(size: 16)),
                               ),
@@ -143,8 +143,7 @@ class AlbumRow extends StatelessWidget {
   final Album album;
   final AppRouter router;
 
-  const AlbumRow({Key? key, required this.album, required this.router})
-      : super(key: key);
+  const AlbumRow({super.key, required this.album, required this.router});
 
   @override
   Widget build(BuildContext context) {

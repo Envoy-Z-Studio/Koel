@@ -14,8 +14,7 @@ import 'package:provider/provider.dart';
 class PlayableActionSheet extends StatefulWidget {
   final Playable playable;
 
-  const PlayableActionSheet({Key? key, required this.playable})
-      : super(key: key);
+  const PlayableActionSheet({super.key, required this.playable});
 
   @override
   _PlayableActionSheetState createState() => _PlayableActionSheetState();
@@ -24,6 +23,7 @@ class PlayableActionSheet extends StatefulWidget {
 class _PlayableActionSheetState extends State<PlayableActionSheet> {
   var _queued = false;
 
+  @override
   initState() {
     super.initState();
 
@@ -250,13 +250,13 @@ class PlayableActionButton extends StatelessWidget {
   final bool enabled;
 
   const PlayableActionButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.icon,
     required this.onTap,
     this.hideSheetOnTap = true,
     this.enabled = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

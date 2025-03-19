@@ -5,10 +5,10 @@ class BottomSpace extends StatelessWidget {
   final bool asSliver;
 
   const BottomSpace({
-    Key? key,
+    super.key,
     this.height = 160,
     this.asSliver = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

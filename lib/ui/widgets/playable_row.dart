@@ -26,14 +26,14 @@ class PlayableRow extends StatefulWidget {
 
   final AppRouter router;
 
-  PlayableRow({
-    Key? key,
+  const PlayableRow({
+    super.key,
     required this.playable,
     this.bordered = true,
     this.listContext = PlayableListContext.other,
     this.index = 0,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _PlayableRowState createState() => _PlayableRowState();
@@ -85,9 +85,9 @@ class _PlayableRowState extends State<PlayableRow> {
                 : timeago.format(createdAt);
         break;
       default:
-        if (widget.playable is Episode)
+        if (widget.playable is Episode) {
           subtitle = (widget.playable as Episode).podcastTitle;
-        else if (widget.playable is Song)
+        } else if (widget.playable is Song)
           subtitle = (widget.playable as Song).artistName;
         break;
     }
@@ -138,9 +138,9 @@ class PlayableRowTrackNumber extends StatelessWidget {
   final Song song;
 
   const PlayableRowTrackNumber({
-    Key? key,
+    super.key,
     required this.song,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -161,9 +161,9 @@ class PlayableRowThumbnail extends StatefulWidget {
   final Playable playable;
 
   const PlayableRowThumbnail({
-    Key? key,
+    super.key,
     required this.playable,
-  }) : super(key: key);
+  });
 
   @override
   _PlayableRowThumbnailState createState() => _PlayableRowThumbnailState();
@@ -215,12 +215,12 @@ class PlayableRowTrailingActions extends StatelessWidget {
   final AppRouter router;
 
   const PlayableRowTrailingActions({
-    Key? key,
+    super.key,
     required this.playable,
     required this.listContext,
     required this.index,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

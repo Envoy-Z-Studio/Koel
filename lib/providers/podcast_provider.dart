@@ -1,4 +1,3 @@
-import 'package:app/main.dart';
 import 'package:app/mixins/stream_subscriber.dart';
 import 'package:app/models/models.dart';
 import 'package:app/providers/providers.dart';
@@ -22,7 +21,9 @@ class PodcastProvider with ChangeNotifier, StreamSubscriber {
 
   Future<void> fetchAll() async {
     _podcasts = _parsePodcastsFromJson(await get('podcasts'));
-    _podcasts.forEach((element) => _vault[element.id] = element);
+    for (var element in _podcasts) {
+      _vault[element.id] = element;
+    }
 
     notifyListeners();
   }

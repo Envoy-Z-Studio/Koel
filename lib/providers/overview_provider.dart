@@ -58,21 +58,21 @@ class OverviewProvider with ChangeNotifier, StreamSubscriber {
       ..addAll(
           _playableProvider.parseFromJson(response['recently_played_songs']));
 
-    final _mostPlayedAlbums = response['most_played_albums']
+    final mostPlayedAlbums = response['most_played_albums']
         .map<Album>((j) => Album.fromJson(j))
         .toList();
 
     mostPlayedAlbums
       ..clear()
-      ..addAll(_albumProvider.syncWithVault(_mostPlayedAlbums));
+      ..addAll(_albumProvider.syncWithVault(mostPlayedAlbums));
 
-    final _mostPlayedArtist = response['most_played_artists']
+    final mostPlayedArtist = response['most_played_artists']
         .map<Artist>((j) => Artist.fromJson(j))
         .toList();
 
     mostPlayedArtists
       ..clear()
-      ..addAll(_artistProvider.syncWithVault(_mostPlayedArtist));
+      ..addAll(_artistProvider.syncWithVault(mostPlayedArtist));
 
     notifyListeners();
   }

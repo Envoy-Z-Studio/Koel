@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
 
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> with StreamSubscriber {
     host = host.trim().replaceAll(RegExp(r'/+$'), '');
 
     if (!host.startsWith("http://") && !host.startsWith("https://")) {
-      host = "https://" + host;
+      host = "https://$host";
     }
 
     return host;
@@ -214,13 +214,13 @@ class _LoginScreenState extends State<LoginScreen> with StreamSubscriber {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
+                        onPressed: _authenticating ? null : attemptLogin,
                         child: _authenticating
                             ? const SpinKitThreeBounce(
                                 color: Colors.white,
                                 size: 16,
                               )
                             : const Text('Log In'),
-                        onPressed: _authenticating ? null : attemptLogin,
                       ),
                     ),
                     _authenticating

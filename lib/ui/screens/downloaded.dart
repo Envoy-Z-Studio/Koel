@@ -14,7 +14,7 @@ class DownloadedScreen extends StatefulWidget {
   static const routeName = '/downloaded';
   bool inOfflineMode = false;
 
-  DownloadedScreen({Key? key, this.inOfflineMode = false}) : super(key: key);
+  DownloadedScreen({super.key, this.inOfflineMode = false});
 
   @override
   State<StatefulWidget> createState() => _DownloadedScreenState();
@@ -102,9 +102,9 @@ class _DownloadedScreenState extends State<DownloadedScreen> {
                         fields: ['title', 'artist_name', 'created_at'],
                         currentField: sortConfig.field,
                         currentOrder: sortConfig.order,
-                        onMenuItemSelected: (_sortConfig) {
-                          setState(() => sortConfig = _sortConfig);
-                          AppState.set('downloaded.sort', _sortConfig);
+                        onMenuItemSelected: (sortConfig) {
+                          setState(() => sortConfig = sortConfig);
+                          AppState.set('downloaded.sort', sortConfig);
                         },
                       ),
                     ],

@@ -7,11 +7,11 @@ class PodcastCard extends StatefulWidget {
   final Podcast podcast;
   final AppRouter router;
 
-  PodcastCard({
-    Key? key,
+  const PodcastCard({
+    super.key,
     required this.podcast,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _PodcastCardState createState() => _PodcastCardState();

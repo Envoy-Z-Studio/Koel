@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class DataLoadingScreen extends StatefulWidget {
   static const routeName = '/loading';
 
-  const DataLoadingScreen({Key? key}) : super(key: key);
+  const DataLoadingScreen({super.key});
 
   @override
   _DataLoadingScreen createState() => _DataLoadingScreen();

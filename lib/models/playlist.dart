@@ -9,7 +9,7 @@ class Playlist {
 
   Playlist({required this.id, required this.name, required this.isSmart});
 
-  bool get isEmpty => playables.length == 0;
+  bool get isEmpty => playables.isEmpty;
 
   bool get isStandard => !isSmart;
 

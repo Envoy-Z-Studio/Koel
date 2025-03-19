@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'dart:io';
 
 import 'package:app/app_state.dart';
@@ -47,7 +46,7 @@ class KoelAudioHandler extends BaseAudioHandler with QueueHandler, SeekHandler {
       ..playableProvider = playableProvider
       ..repeatMode = preferences.repeatMode;
 
-    await this.setVolume(preferences.volume);
+    await setVolume(preferences.volume);
 
     if (Feature.queueStateSync.isSupported()) {
       _trySetUpQueue();
@@ -196,7 +195,7 @@ class KoelAudioHandler extends BaseAudioHandler with QueueHandler, SeekHandler {
   }
 
   Future<void> queueAndPlay(Playable playable) async {
-    await this.queueAfterCurrent(playable);
+    await queueAfterCurrent(playable);
     await _playAtIndex(queue.value.indexOf(await playable.asMediaItem()));
   }
 
@@ -212,10 +211,10 @@ class KoelAudioHandler extends BaseAudioHandler with QueueHandler, SeekHandler {
     final mediaItem = await playable.asMediaItem();
 
     if (await queued(playable)) {
-      await this.removeQueueItem(mediaItem);
+      await removeQueueItem(mediaItem);
     }
 
-    await this.insertQueueItem(currentQueueIndex + 1, mediaItem);
+    await insertQueueItem(currentQueueIndex + 1, mediaItem);
   }
 
   Future<void> playOrPause() async {
@@ -271,8 +270,9 @@ class KoelAudioHandler extends BaseAudioHandler with QueueHandler, SeekHandler {
 
   @override
   Future<void> skipToPrevious() async {
-    if (_player.position > Duration(seconds: 5))
+    if (_player.position > Duration(seconds: 5)) {
       return _player.seek(Duration.zero);
+    }
 
     if (currentQueueIndex == -1) return;
 
@@ -345,7 +345,7 @@ class KoelAudioHandler extends BaseAudioHandler with QueueHandler, SeekHandler {
     }
 
     preferences.repeatMode = repeatMode;
-    await this.setRepeatMode(repeatMode);
+    await setRepeatMode(repeatMode);
 
     return repeatMode;
   }

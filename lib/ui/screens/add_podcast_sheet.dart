@@ -10,7 +10,7 @@ class AddPodcastSheet extends StatefulWidget {
   static final Key nameFieldKey = UniqueKey();
   static final Key submitButtonKey = UniqueKey();
 
-  const AddPodcastSheet({Key? key}) : super(key: key);
+  const AddPodcastSheet({super.key});
 
   @override
   _AddPodcastSheetState createState() => _AddPodcastSheetState();
@@ -52,7 +52,7 @@ class _AddPodcastSheetState extends State<AddPodcastSheet> {
 
       focusNode.unfocus();
       setState(() => _working = true);
-      var error = null;
+      Object error = null as Object;
 
       try {
         await podcastProvider.add(url: _url);
@@ -62,31 +62,26 @@ class _AddPodcastSheetState extends State<AddPodcastSheet> {
         setState(() => _working = false);
       }
 
-      if (error == null) {
-        Navigator.of(context).pop();
-        showOverlay(context, caption: 'Podcast added');
-      } else {
-        var message =
-            error is HttpResponseException && error.response.statusCode == 409
-                ? 'You are already subscribed to this podcast.'
-                : 'Something wrong happened. Please try again.';
-        showCupertinoDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return CupertinoAlertDialog(
-              title: const Text('Uh oh'),
-              content: Text(message),
-              actions: <Widget>[
-                CupertinoDialogAction(
-                  child: const Text('OK'),
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ],
-            );
-          },
-        );
-      }
-    }
+      var message =
+          error is HttpResponseException && error.response.statusCode == 409
+              ? 'You are already subscribed to this podcast.'
+              : 'Something wrong happened. Please try again.';
+      showCupertinoDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return CupertinoAlertDialog(
+            title: const Text('Uh oh'),
+            content: Text(message),
+            actions: <Widget>[
+              CupertinoDialogAction(
+                child: const Text('OK'),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          );
+        },
+      );
+        }
 
     return GradientDecoratedContainer(
       padding: EdgeInsets.only(

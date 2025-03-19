@@ -5,13 +5,11 @@ class GradientDecoratedContainer extends StatelessWidget {
   final EdgeInsets? padding;
 
   const GradientDecoratedContainer(
-      {Key? key, this.child = const SizedBox.expand(), this.padding})
-      : super(key: key);
+      {super.key, this.child = const SizedBox.expand(), this.padding});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: child,
       padding: padding,
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -20,6 +18,7 @@ class GradientDecoratedContainer extends StatelessWidget {
           alignment: Alignment.bottomLeft,
         ),
       ),
+      child: child,
     );
   }
 }

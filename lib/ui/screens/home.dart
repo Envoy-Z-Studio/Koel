@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
 
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<StatefulWidget> createState() => _HomeScreenState();
@@ -160,8 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class HomeRecentlyPlayedSection extends StatefulWidget {
   final List<Playable> initialPlayables;
 
-  const HomeRecentlyPlayedSection({Key? key, required this.initialPlayables})
-      : super(key: key);
+  const HomeRecentlyPlayedSection({super.key, required this.initialPlayables});
 
   @override
   State<StatefulWidget> createState() => _HomeRecentlyPlayedSectionState();
@@ -187,11 +186,11 @@ class _HomeRecentlyPlayedSectionState extends State<HomeRecentlyPlayedSection> {
 }
 
 class EmptyHomeScreen extends StatelessWidget {
-  const EmptyHomeScreen({Key? key}) : super(key: key);
+  const EmptyHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: Center(
         child: Column(

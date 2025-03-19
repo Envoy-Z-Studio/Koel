@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 class PlaylistDetailsScreen extends StatefulWidget {
   static const routeName = '/playlist';
 
-  const PlaylistDetailsScreen({Key? key}) : super(key: key);
+  const PlaylistDetailsScreen({super.key});
 
   @override
   _PlaylistDetailsScreen createState() => _PlaylistDetailsScreen();
@@ -52,11 +52,13 @@ class _PlaylistDetailsScreen extends State<PlaylistDetailsScreen> {
           future: buildRequest(playlist.id),
           builder: (BuildContext _, AsyncSnapshot<List<Playable>> snapshot) {
             if (!snapshot.hasData ||
-                snapshot.connectionState == ConnectionState.active)
+                snapshot.connectionState == ConnectionState.active) {
               return const PlayableListScreenPlaceholder();
+            }
 
-            if (snapshot.hasError)
+            if (snapshot.hasError) {
               return OopsBox(onRetry: () => setState(() {}));
+            }
 
             final playables =
                 snapshot.data == null ? <Playable>[] : snapshot.requireData;
@@ -80,9 +82,9 @@ class _PlaylistDetailsScreen extends State<PlaylistDetailsScreen> {
                         fields: ['title', 'artist_name', 'created_at'],
                         currentField: sortConfig.field,
                         currentOrder: sortConfig.order,
-                        onMenuItemSelected: (_sortConfig) {
-                          setState(() => sortConfig = _sortConfig);
-                          AppState.set('playlist.sort', _sortConfig);
+                        onMenuItemSelected: (sortConfig) {
+                          setState(() => sortConfig = sortConfig);
+                          AppState.set('playlist.sort', sortConfig);
                         },
                       ),
                     ],

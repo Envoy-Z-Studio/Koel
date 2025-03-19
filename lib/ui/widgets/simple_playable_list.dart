@@ -14,12 +14,12 @@ class SimplePlayableList extends StatelessWidget {
   final void Function()? onHeaderTap;
 
   const SimplePlayableList({
-    Key? key,
+    super.key,
     required this.playables,
     this.headingText,
     this.bordered = false,
     this.onHeaderTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:app/ui/placeholders/gradient_placeholder.dart';
 import 'package:flutter/material.dart';
 
 class ArtistsScreenPlaceholder extends StatelessWidget {
-  const ArtistsScreenPlaceholder({Key? key}) : super(key: key);
+  const ArtistsScreenPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ArtistsScreenPlaceholder extends StatelessWidget {
 }
 
 class ArtistRowPlaceholder extends StatelessWidget {
-  const ArtistRowPlaceholder({Key? key}) : super(key: key);
+  const ArtistRowPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {

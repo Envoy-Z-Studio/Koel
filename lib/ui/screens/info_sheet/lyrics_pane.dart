@@ -6,16 +6,16 @@ import 'package:flutter_html/flutter_html.dart';
 class LyricsPane extends StatelessWidget {
   final Song song;
 
-  LyricsPane({Key? key, required this.song}) : super(key: key);
+  const LyricsPane({super.key, required this.song});
 
   @override
   Widget build(BuildContext context) {
     return song.lyrics.isEmpty
         ? const Padding(
-            padding: const EdgeInsets.only(top: 16),
-            child: const Text(
+            padding: EdgeInsets.only(top: 16),
+            child: Text(
               'No lyrics available.',
-              style: const TextStyle(color: Colors.white54),
+              style: TextStyle(color: Colors.white54),
             ),
           )
         : Padding(

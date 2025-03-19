@@ -2,7 +2,7 @@ import 'package:app/ui/placeholders/placeholders.dart';
 import 'package:flutter/material.dart';
 
 class AlbumsScreenPlaceholder extends StatelessWidget {
-  const AlbumsScreenPlaceholder({Key? key}) : super(key: key);
+  const AlbumsScreenPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class AlbumsScreenPlaceholder extends StatelessWidget {
 }
 
 class AlbumRowPlaceholder extends StatelessWidget {
-  const AlbumRowPlaceholder({Key? key}) : super(key: key);
+  const AlbumRowPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {

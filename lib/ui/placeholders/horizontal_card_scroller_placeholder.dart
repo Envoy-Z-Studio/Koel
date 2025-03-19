@@ -3,7 +3,7 @@ import 'package:app/ui/placeholders/placeholders.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalCardScrollerPlaceholder extends StatelessWidget {
-  const HorizontalCardScrollerPlaceholder({Key? key}) : super(key: key);
+  const HorizontalCardScrollerPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {

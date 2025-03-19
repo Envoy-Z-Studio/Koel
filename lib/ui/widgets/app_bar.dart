@@ -12,19 +12,19 @@ class AppBar extends StatelessWidget {
   final List<Widget> actions;
 
   const AppBar({
-    Key? key,
+    super.key,
     required this.headingText,
     required this.coverImage,
     this.backgroundImage,
     this.actions = const [],
-  }) : super(key: key);
+  });
 
   final Widget _gradientEffect = const SizedBox(
     width: double.infinity,
     height: double.infinity,
-    child: const DecoratedBox(
-      decoration: const BoxDecoration(
-        gradient: const LinearGradient(
+    child: DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
@@ -83,7 +83,7 @@ class AppBar extends StatelessWidget {
 class CoverImageStack extends StatelessWidget {
   final List<Playable> playables;
 
-  const CoverImageStack({Key? key, required this.playables}) : super(key: key);
+  const CoverImageStack({super.key, required this.playables});
 
   bool get isEmpty => playables.isEmpty;
 
@@ -141,10 +141,10 @@ class CoverImage extends StatelessWidget {
   final String? imageUrl;
 
   const CoverImage({
-    Key? key,
+    super.key,
     required this.imageUrl,
     this.overlayOpacity = 0.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -173,10 +173,10 @@ class CoverImage extends StatelessWidget {
               alignment: Alignment.center,
             ),
             boxShadow: const <BoxShadow>[
-              const BoxShadow(
+              BoxShadow(
                 color: AppColors.flexibleScreenHeaderBackground,
                 blurRadius: 10.0,
-                offset: const Offset(0, 6),
+                offset: Offset(0, 6),
               ),
             ],
           ),

@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 class ArtistDetailsScreen extends StatefulWidget {
   static const routeName = '/artist';
 
-  const ArtistDetailsScreen({Key? key}) : super(key: key);
+  const ArtistDetailsScreen({super.key});
 
   @override
   _ArtistDetailsScreenState createState() => _ArtistDetailsScreenState();
@@ -49,11 +49,13 @@ class _ArtistDetailsScreenState extends State<ArtistDetailsScreen> {
           future: buildRequest(artistId),
           builder: (_, AsyncSnapshot<List<dynamic>> snapshot) {
             if (!snapshot.hasData ||
-                snapshot.connectionState == ConnectionState.active)
+                snapshot.connectionState == ConnectionState.active) {
               return const PlayableListScreenPlaceholder();
+            }
 
-            if (snapshot.hasError)
+            if (snapshot.hasError) {
               return OopsBox(onRetry: () => setState(() {}));
+            }
 
             final songs = snapshot.requireData[1] as List<Playable>;
 
@@ -77,8 +79,8 @@ class _ArtistDetailsScreenState extends State<ArtistDetailsScreen> {
                           fields: ['title', 'album_name', 'created_at'],
                           currentField: sortConfig.field,
                           currentOrder: sortConfig.order,
-                          onMenuItemSelected: (_sortConfig) {
-                            setState(() => sortConfig = _sortConfig);
+                          onMenuItemSelected: (sortConfig) {
+                            setState(() => sortConfig = sortConfig);
                             AppState.set('artist.sort', sortConfig);
                           },
                         ),
@@ -114,7 +116,7 @@ class _ArtistDetailsScreenState extends State<ArtistDetailsScreen> {
                               Radius.circular(16),
                             ),
                             boxShadow: const <BoxShadow>[
-                              const BoxShadow(
+                              BoxShadow(
                                 color: Colors.black38,
                                 blurRadius: 10.0,
                                 offset: Offset(0, 6),

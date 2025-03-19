@@ -11,39 +11,34 @@ class PlayableThumbnail extends StatelessWidget {
   final bool playing;
 
   const PlayableThumbnail.xs({
-    Key? key,
+    super.key,
     required this.playable,
     this.playing = false,
-  })  : size = ThumbnailSize.xs,
-        super(key: key);
+  })  : size = ThumbnailSize.xs;
 
   const PlayableThumbnail.sm({
-    Key? key,
+    super.key,
     required this.playable,
     this.playing = false,
-  })  : size = ThumbnailSize.sm,
-        super(key: key);
+  })  : size = ThumbnailSize.sm;
 
   const PlayableThumbnail.md({
-    Key? key,
+    super.key,
     required this.playable,
     this.playing = false,
-  })  : size = ThumbnailSize.md,
-        super(key: key);
+  })  : size = ThumbnailSize.md;
 
   const PlayableThumbnail.lg({
-    Key? key,
+    super.key,
     required this.playable,
     this.playing = false,
-  })  : size = ThumbnailSize.lg,
-        super(key: key);
+  })  : size = ThumbnailSize.lg;
 
   const PlayableThumbnail.xl({
-    Key? key,
+    super.key,
     required this.playable,
     this.playing = false,
-  })  : size = ThumbnailSize.xl,
-        super(key: key);
+  })  : size = ThumbnailSize.xl;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +78,7 @@ class PlayableThumbnail extends StatelessWidget {
         cornerRadius: borderRadius,
         cornerSmoothing: .8,
       ),
-      child: this.playing
+      child: playing
           ? PlayingPlayableThumbnail(playable: playable)
           : albumCover,
     );
@@ -123,8 +118,7 @@ class PlayableThumbnail extends StatelessWidget {
 class PlayingPlayableThumbnail extends StatelessWidget {
   final Playable playable;
 
-  const PlayingPlayableThumbnail({Key? key, required this.playable})
-      : super(key: key);
+  const PlayingPlayableThumbnail({super.key, required this.playable});
 
   @override
   Widget build(BuildContext context) {

@@ -8,11 +8,11 @@ class ArtistCard extends StatefulWidget {
   final Artist artist;
   final AppRouter router;
 
-  ArtistCard({
-    Key? key,
+  const ArtistCard({
+    super.key,
     required this.artist,
     this.router = const AppRouter(),
-  }) : super(key: key);
+  });
 
   @override
   _ArtistCardState createState() => _ArtistCardState();

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenPlaceholder extends StatelessWidget {
-  const HomeScreenPlaceholder({Key? key}) : super(key: key);
+  const HomeScreenPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class HomeScreenPlaceholder extends StatelessWidget {
 }
 
 class SongListWithHeadingPlaceholder extends StatelessWidget {
-  const SongListWithHeadingPlaceholder({Key? key}) : super(key: key);
+  const SongListWithHeadingPlaceholder({super.key});
 
   @override
   Widget build(BuildContext context) {

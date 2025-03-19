@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 class ProgressBar extends StatefulWidget {
   final Playable playable;
 
-  const ProgressBar({Key? key, required this.playable}) : super(key: key);
+  const ProgressBar({super.key, required this.playable});
 
+  @override
   _ProgressBarState createState() => _ProgressBarState();
 }
 
@@ -76,7 +77,7 @@ class _ProgressBarState extends State<ProgressBar> with StreamSubscriber {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(_position.toMs(), style: timeStampStyle),
-              Text('-' + (_duration - _position).toMs(), style: timeStampStyle),
+              Text('-${(_duration - _position).toMs()}', style: timeStampStyle),
             ],
           ),
         ),

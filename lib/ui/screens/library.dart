@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 class LibraryScreen extends StatelessWidget {
   static const routeName = '/library';
 
-  const LibraryScreen({Key? key}) : super(key: key);
+  const LibraryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class LibraryScreen extends StatelessWidget {
             slivers: <Widget>[
               const CupertinoSliverNavigationBar(
                 backgroundColor: AppColors.staticScreenHeaderBackground,
-                largeTitle: const LargeTitle(text: 'Library'),
+                largeTitle: LargeTitle(text: 'Library'),
               ),
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 0.0),
@@ -134,20 +134,20 @@ class LibraryMenuItem extends StatelessWidget {
   final void Function() onTap;
 
   const LibraryMenuItem({
-    Key? key,
+    super.key,
     required this.icon,
     required this.label,
     required this.onTap,
   })  : assert(
           icon is IconData || icon is Widget,
           'icon must be of either IconData or Widget type.',
-        ),
-        super(key: key);
+        );
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
+        onTap: onTap,
         child: ListTile(
           contentPadding: EdgeInsets.symmetric(
             horizontal: AppDimensions.hPadding,
@@ -161,7 +161,6 @@ class LibraryMenuItem extends StatelessWidget {
             color: Colors.white30,
           ),
         ),
-        onTap: onTap,
       ),
     );
   }

@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 class AlbumInfoPane extends StatelessWidget {
   final Song song;
 
-  AlbumInfoPane({Key? key, required this.song}) : super(key: key);
+  const AlbumInfoPane({super.key, required this.song});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class AlbumInfoPane extends StatelessWidget {
         ),
         child: Text(
           'No album information available.',
-          style: const TextStyle(color: Colors.white54),
+          style: TextStyle(color: Colors.white54),
         ),
       );
     }
@@ -37,8 +37,9 @@ class AlbumInfoPane extends StatelessWidget {
         context.read<MediaInfoProvider>().fetchForAlbum(song.albumId),
       ]),
       builder: (context, AsyncSnapshot<dynamic> snapshot) {
-        if (!snapshot.hasData || snapshot.hasError)
+        if (!snapshot.hasData || snapshot.hasError) {
           return const MediaInfoPanePlaceholder();
+        }
 
         var album = snapshot.requireData[0] as Album;
         var info = snapshot.requireData[1] as AlbumInfo;
@@ -68,10 +69,10 @@ class AlbumInfoPane extends StatelessWidget {
             ),
             if (info.information.isEmpty)
               const Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: const Text(
+                padding: EdgeInsets.only(top: 16),
+                child: Text(
                   'No album information available.',
-                  style: const TextStyle(color: Colors.white54),
+                  style: TextStyle(color: Colors.white54),
                 ),
               )
             else

@@ -7,17 +7,17 @@ class ScrollsToTop extends StatelessWidget {
   final Base.ScrollsToTopCallback? onScrollsToTop;
 
   const ScrollsToTop({
-    Key? key,
+    super.key,
     required this.child,
     this.onScrollsToTop,
     this.scrollController,
-  }) : super(key: key);
+  });
 
+  @override
   Widget build(BuildContext context) {
     var controller = scrollController ?? PrimaryScrollController.of(context);
 
     return Base.ScrollsToTop(
-      child: child,
       onScrollsToTop: onScrollsToTop ??
           (event) async {
             controller.animateTo(
@@ -26,6 +26,7 @@ class ScrollsToTop extends StatelessWidget {
               curve: Curves.easeOut,
             );
           },
+      child: child,
     );
   }
 }
