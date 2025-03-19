@@ -5,6 +5,7 @@
 import 'dart:async' as i5;
 import 'dart:ui' as i7;
 
+import 'package:app/models/playable.dart';
 import 'package:app/models/playlist.dart' as i3;
 import 'package:app/models/song.dart' as i6;
 import 'package:app/providers/playlist_provider.dart' as i4;
@@ -80,7 +81,9 @@ class MockPlaylistProvider extends i1.Mock implements i4.PlaylistProvider {
 
   @override
   i5.Future<void> removeFromPlaylist(
-          {i6.Song? song, i3.Playlist? playlist}) =>
+           Playable playable, {
+    required i3.Playlist playlist,
+  }) =>
       (super.noSuchMethod(
           Invocation.method(
               #removeSongFromPlaylist, [], {#song: song, #playlist: playlist}),
@@ -94,7 +97,7 @@ class MockPlaylistProvider extends i1.Mock implements i4.PlaylistProvider {
           as i5.Future<i3.Playlist>);
 
   @override
-  i5.Future<void> remove({i3.Playlist? playlist}) =>
+  i5.Future<void> remove(i3.Playlist? playlist) =>
       (super.noSuchMethod(Invocation.method(#remove, [], {#playlist: playlist}),
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as i5.Future<void>);

@@ -75,7 +75,7 @@ class AlbumProvider with ChangeNotifier, StreamSubscriber {
         .toList();
 
     final List<Album> synced = syncWithVault(albums);
-    albums = (<dynamic>{...albums, ...synced}.toList()) as List<Album>;
+    albums = {...albums, ...synced}.toList();
 
     _page = res['links']['next'] == null ? 1 : ++res['meta']['current_page'];
 

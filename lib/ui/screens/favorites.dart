@@ -50,58 +50,43 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var sortConfig = AppState.get(
+  var sortConfig = AppState.get(
       'favorites.sort',
       PlayableSortConfig(field: 'title', order: SortOrder.asc),
     )!;
+ var widgets = [
+                  SliverAppBar(
+      backgroundColor: AppColors.flexibleScreenHeaderBackground,
 
-    final emptyWidget = SliverFillRemaining(
-      hasScrollBody: false,
-      fillOverscroll: true,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppDimensions.hPadding),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Icon(
-                CupertinoIcons.heart,
-                size: 56.0,
-                color: Colors.grey,
-              ),
-              const SizedBox(height: 16.0),
-              Text(
-                'No favorites',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: 16.0),
-              RichText(
-                textAlign: TextAlign.center,
-                text: const TextSpan(
-                  style: TextStyle(color: Colors.white54),
-                  children: <InlineSpan>[
-                    TextSpan(text: 'Tap the'),
-                    WidgetSpan(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Icon(
-                          CupertinoIcons.heart_solid,
-                          size: 16.0,
-                        ),
-                      ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: NoFavouritesScreen(
                     ),
-                    TextSpan(
-                      text: 'icon in a song’s menu to mark it as '
-                          'favorite.',
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+                  )
+                ];
+
+  // return Scaffold(
+    
+  //     body: CupertinoTheme(
+  //       data: const CupertinoThemeData(primaryColor: Colors.white),
+  //       child: GradientDecoratedContainer(
+  //         child:
+  //          PullToRefresh(
+  //               onRefresh: () => _loading ? Future(() => null) : makeRequest(),
+  //               child: CustomScrollView(slivers: widgets),
+  //             ))));
+
+  
+  //   SliverFillRemaining(
+  //     hasScrollBody: false,
+  //     fillOverscroll: true,
+  //     child: Padding(
+  //       padding: const EdgeInsets.symmetric(horizontal: AppDimensions.hPadding),
+  //       child: Center(
+  //         child: ,
+  //       ),
+  //     ),
+  //   );
 
     return Scaffold(
       body: GradientDecoratedContainer(
@@ -128,7 +113,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               child: ScrollsToTop(
                 child: CustomScrollView(
                   slivers: provider.playables.isEmpty
-                      ? <Widget>[emptyWidget]
+                      ? <Widget>[Text("empty")]
                       : <Widget>[
                           AppBar(
                             headingText: 'Favorites',
@@ -166,6 +151,59 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             );
           },
         ),
+      ),
+    );
+  }
+}
+
+
+class NoFavouritesScreen extends StatelessWidget {
+
+  const NoFavouritesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      alignment: Alignment.center,
+      child: Wrap(
+        spacing: 16.0,
+        direction: Axis.vertical,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: <Widget>[
+          const Icon(
+                CupertinoIcons.heart,
+                size: 56.0,
+                color: Colors.grey,
+              ),
+          Text(
+                'No favorites',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            const SizedBox(height: 16.0),
+              RichText(
+                textAlign: TextAlign.center,
+                text: const TextSpan(
+                  style: TextStyle(color: Colors.white54),
+                  children: <InlineSpan>[
+                    TextSpan(text: 'Tap the'),
+                    WidgetSpan(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 5.0),
+                        child: Icon(
+                          CupertinoIcons.heart_solid,
+                          size: 16.0,
+                        ),
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'icon in a song’s menu to mark it as '
+                          'favorite.',
+                    ),
+                  ],
+                ),
+              ),
+        ],
       ),
     );
   }

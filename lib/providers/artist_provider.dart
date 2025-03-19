@@ -75,7 +75,7 @@ class ArtistProvider with ChangeNotifier, StreamSubscriber {
         .toList();
 
     List<Artist> synced = syncWithVault(artists);
-    artists = (<dynamic>{...artists, ...synced}.toList()) as List<Artist>;
+    artists = {...artists, ...synced}.toList();
 
     _page = res['links']['next'] == null ? 1 : ++res['meta']['current_page'];
 

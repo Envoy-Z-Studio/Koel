@@ -6,7 +6,8 @@ import 'package:app/ui/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter/src/material/app_bar.dart' as Material;
+import 'package:app/ui/widgets/app_bar.dart' as App;
 class PlaylistsScreen extends StatefulWidget {
   static const routeName = '/playlists';
   final AppRouter router;
@@ -39,6 +40,7 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+    
       body: CupertinoTheme(
         data: const CupertinoThemeData(primaryColor: Colors.white),
         child: GradientDecoratedContainer(
@@ -51,6 +53,10 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
 
               if (playlists.isEmpty) {
                 widgets = [
+                  SliverAppBar(
+      backgroundColor: AppColors.flexibleScreenHeaderBackground,
+
+                  ),
                   SliverToBoxAdapter(
                     child: NoPlaylistsScreen(
                       onTap: () {
@@ -168,6 +174,11 @@ class NoPlaylistsScreen extends StatelessWidget {
         direction: Axis.vertical,
         crossAxisAlignment: WrapCrossAlignment.center,
         children: <Widget>[
+            MaterialButton(
+                child: Text("X"),
+                onPressed: ()=>{
+                Navigator.of(context).pop()
+              }),
           const Icon(
             CupertinoIcons.exclamationmark_square,
             size: 56.0,

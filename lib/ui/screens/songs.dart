@@ -78,7 +78,8 @@ class _SongsScreenState extends State<SongsScreen> {
       if (result != null) {
         _paginationConfig.page = result.nextPage;
       }
-    } catch (_) {
+    } catch (ex) {
+      print(ex);
       setState(() => _errored = true);
     } finally {
       setState(() => _loading = false);

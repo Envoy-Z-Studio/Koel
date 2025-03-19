@@ -97,6 +97,11 @@ class _AddPlaylistScreenState extends State<CreatePlaylistSheet> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              MaterialButton(
+                child: Text("X"),
+                onPressed: ()=>{
+                Navigator.of(context).pop()
+              }),
               TextFormField(
                 key: CreatePlaylistSheet.nameFieldKey,
                 focusNode: focusNode,

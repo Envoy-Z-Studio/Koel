@@ -43,6 +43,7 @@ class AppBar extends StatelessWidget {
     return SliverAppBar(
       pinned: true,
       expandedHeight: 290,
+      
       actions: actions,
       backgroundColor: AppColors.flexibleScreenHeaderBackground,
       flexibleSpace: FrostedGlassBackground(

@@ -57,7 +57,7 @@ class PlayableProvider with ChangeNotifier, StreamSubscriber {
         res['data'].map<Playable>((j) => Playable.fromJson(j)).toList();
     final synced = syncWithVault(items);
 
-    playables = (<dynamic>{...playables, ...synced}.toList()) as List<Playable<dynamic>>;
+    playables = {...playables, ...synced}.toList();
     notifyListeners();
 
     return PaginationResult(
