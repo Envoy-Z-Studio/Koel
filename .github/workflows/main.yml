@@ -1,12 +1,10 @@
-name: Flutter CI/CD
-
+name: Flutter build apk
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build:
