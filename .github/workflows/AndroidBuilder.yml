@@ -5,7 +5,7 @@ on:
 
 env:
   JAVA_VERSION: "17.x"
-  FLUTTER_VERSION: "stable"
+  FLUTTER_VERSION: "3.29.2"
 
 jobs:
   apk_compilation: 
